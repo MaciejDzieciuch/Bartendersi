@@ -1,4 +1,4 @@
-package com.pjwstk.service.parser;
+package com.pjwstk.service.parsermanager;
 
 import javax.ejb.Stateless;
 

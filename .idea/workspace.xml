@@ -1,12 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12a1e5d3-0349-4a8f-8807-7ee4199c6ba2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parser/FileParserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parser/ParserService.java" afterDir="false" />
+    <list default="true" id="256d695d-9d1a-4468-b8ca-1fbb4d738ce6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/google-java-format.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/domain/entity/Category.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/domain/entity/Ingredients.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/domain/entity/Recipe.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/domain/entity/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parsermanager/ApiConsumer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parsermanager/ApiDataInitializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parsermanager/ParserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parsermanager/RecipeDeserializer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/propertiesmanager/PropertiesLoaderService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index/Bartendersi/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index/Bartendersi/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pjwstk/domain/api/RecipeApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/domain/api/RecipeApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pjwstk/domain/api/RecipeResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/domain/api/RecipeResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pjwstk/handler/ApiDataHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/handler/ApiDataHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parser/ApiConsumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parser/ApiDataInitializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parser/FileParserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parsermanager/FileParserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pjwstk/service/parser/ParserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,7 +54,8 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="extract.method.default.visibility" value="private" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../jjdd7-javengers" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -57,13 +76,14 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="12a1e5d3-0349-4a8f-8807-7ee4199c6ba2" name="Default Changelist" comment="" />
+      <changelist id="256d695d-9d1a-4468-b8ca-1fbb4d738ce6" name="Default Changelist" comment="" />
       <created>1571517541893</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1571517541893</updated>
       <workItem from="1571517543171" duration="3441000" />
       <workItem from="1571573695807" duration="2726000" />
+      <workItem from="1573332267548" duration="5363000" />
     </task>
     <servers />
   </component>
