@@ -1,4 +1,4 @@
-package com.pjwstk.domain;
+package com.pjwstk.domain.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Ingredients")
-public class Ingredients {
+@Table(name = "Category")
+public class Category {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,10 +17,10 @@ public class Ingredients {
   private int id;
 
   @Column(name = "Name")
-  private String Name;
+  private String name;
 
-  @Column(name = "Measure")
-  private String Measure;
+  @Column(name = "Recipe_ID")
+  private long recipeId;
 
   public int getId() {
     return id;
@@ -31,18 +31,18 @@ public class Ingredients {
   }
 
   public String getName() {
-    return Name;
+    return name;
   }
 
   public void setName(String name) {
-    Name = name;
+    this.name = name;
   }
 
-  public String getMeasure() {
-    return Measure;
+  public long getRecipeId() {
+    return recipeId;
   }
 
-  public void setMeasure(String measure) {
-    Measure = measure;
+  public void setRecipeId(long recipeId) {
+    this.recipeId = recipeId;
   }
 }

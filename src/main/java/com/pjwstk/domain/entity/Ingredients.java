@@ -1,6 +1,5 @@
-package com.pjwstk.domain;
+package com.pjwstk.domain.entity;
 
-import java.math.BigInteger;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Category")
-public class Category {
+@Table(name = "Ingredients")
+public class Ingredients {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +17,10 @@ public class Category {
   private int id;
 
   @Column(name = "Name")
-  private String Name;
+  private String name;
 
-  @Column(name = "Recipe_ID")
-  private BigInteger Recipe_ID;
+  @Column(name = "Measure")
+  private String measure;
 
   public int getId() {
     return id;
@@ -32,18 +31,18 @@ public class Category {
   }
 
   public String getName() {
-    return Name;
+    return name;
   }
 
   public void setName(String name) {
-    Name = name;
+    this.name = name;
   }
 
-  public BigInteger getRecipe_ID() {
-    return Recipe_ID;
+  public String getMeasure() {
+    return measure;
   }
 
-  public void setRecipe_ID(BigInteger recipe_ID) {
-    Recipe_ID = recipe_ID;
+  public void setMeasure(String measure) {
+    this.measure = measure;
   }
 }

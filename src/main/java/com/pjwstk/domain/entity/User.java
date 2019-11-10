@@ -1,4 +1,4 @@
-package com.pjwstk.domain;
+package com.pjwstk.domain.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
