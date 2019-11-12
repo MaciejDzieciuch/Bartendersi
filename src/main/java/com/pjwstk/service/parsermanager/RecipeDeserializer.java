@@ -16,8 +16,8 @@ import javax.ejb.EJB;
 
 public class RecipeDeserializer extends JsonDeserializer<RecipeResponse> {
 
-/*  @EJB
-  private PropertiesLoaderService propertiesLoaderService;*/
+  @EJB
+  private PropertiesLoaderService propertiesLoaderService;
 
   @Override
   public RecipeResponse deserialize(JsonParser jsonParser,
@@ -67,8 +67,8 @@ public class RecipeDeserializer extends JsonDeserializer<RecipeResponse> {
     recipeResponse.setDrinkType(jsonNode.get("strAlcoholic").asText().toLowerCase());
     recipeResponse.setGlassType(jsonNode.get("strGlass").asText().toLowerCase());
     if ((jsonNode.get("dateModified")).isNull()) {
-      //String dateFormat = propertiesLoaderService.loadDateFormatProperties();
-      DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+      String dateFormat = propertiesLoaderService.loadDateFormatProperties();
+      DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(dateFormat);
       recipeResponse.setModificationDate(LocalDateTime.now().format(dateTimeFormatter));
     } else {
       recipeResponse.setModificationDate(jsonNode.get("dateModified").asText());
