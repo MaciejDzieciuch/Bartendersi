@@ -1,11 +1,15 @@
 package com.pjwstk.domain.entity;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Ingredients")
@@ -17,10 +21,15 @@ public class Ingredients {
   private int id;
 
   @Column(name = "Name")
+  @NotNull
   private String name;
 
   @Column(name = "Measure")
+  @NotNull
   private String measure;
+
+  @ManyToMany(mappedBy = "Ingredients")
+  private List<Recipe> recipes = new ArrayList<>();
 
   public int getId() {
     return id;
@@ -44,5 +53,13 @@ public class Ingredients {
 
   public void setMeasure(String measure) {
     this.measure = measure;
+  }
+
+  public List<Recipe> getRecipes() {
+    return recipes;
+  }
+
+  public void setRecipes(List<Recipe> recipes) {
+    this.recipes = recipes;
   }
 }

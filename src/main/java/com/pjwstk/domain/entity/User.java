@@ -1,11 +1,18 @@
 package com.pjwstk.domain.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "User")
@@ -17,16 +24,27 @@ public class User {
   private int id;
 
   @Column(name = "Name")
+  @NotNull
   private String name;
 
   @Column(name = "Email")
+  @NotNull
   private String email;
 
   @Column(name = "User_Type")
+  @NotNull
   private String user_type;
 
   @Column(name = "Password")
+  @NotNull
   private String password;
+
+  @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @JoinTable(
+      name = "user_favourite_recipe",
+      joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "ID")},
+      inverseJoinColumns = {@JoinColumn(name = "recipe_id", referencedColumnName = "ID")})
+  private List<Recipe> recipes = new ArrayList<>();
 
   public int getId() {
     return id;
@@ -66,5 +84,13 @@ public class User {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public List<Recipe> getRecipes() {
+    return recipes;
+  }
+
+  public void setRecipes(List<Recipe> recipes) {
+    this.recipes = recipes;
   }
 }
