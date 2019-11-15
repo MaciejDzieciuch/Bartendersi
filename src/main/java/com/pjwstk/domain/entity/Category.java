@@ -25,7 +25,7 @@ public class Category {
   @NotNull
   private String name;
 
-  @OneToMany(mappedBy = "Category", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+  @OneToMany(mappedBy = "category", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   private List<Recipe> recipes = new ArrayList<>();
 
   public int getId() {

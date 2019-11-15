@@ -6,18 +6,18 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.pjwstk.domain.api.RecipeResponse;
-import com.pjwstk.service.propertiesmanager.PropertiesLoaderService;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
-import javax.ejb.EJB;
+import java.util.Objects;
+import java.util.Properties;
 
 public class RecipeDeserializer extends JsonDeserializer<RecipeResponse> {
 
-  @EJB
-  private PropertiesLoaderService propertiesLoaderService;
+  private static final String DATE_FORMAT_PROPERTIES = "dateformat.properties";
+  private static final String DATE_FORMAT = "date.format";
 
   @Override
   public RecipeResponse deserialize(JsonParser jsonParser,
@@ -67,7 +67,7 @@ public class RecipeDeserializer extends JsonDeserializer<RecipeResponse> {
     recipeResponse.setDrinkType(jsonNode.get("strAlcoholic").asText().toLowerCase());
     recipeResponse.setGlassType(jsonNode.get("strGlass").asText().toLowerCase());
     if ((jsonNode.get("dateModified")).isNull()) {
-      String dateFormat = propertiesLoaderService.loadDateFormatProperties();
+      String dateFormat = loadDateFormatProperties();
       DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(dateFormat);
       recipeResponse.setModificationDate(LocalDateTime.now().format(dateTimeFormatter));
     } else {
@@ -75,5 +75,13 @@ public class RecipeDeserializer extends JsonDeserializer<RecipeResponse> {
     }
     recipeResponse.setImageUrl(jsonNode.get("strDrinkThumb").asText());
     recipeResponse.setIngredients(ingredients);
+  }
+
+  public String loadDateFormatProperties() throws IOException {
+
+    Properties dateProperties = new Properties();
+    dateProperties.load(Objects.requireNonNull(Thread.currentThread()
+        .getContextClassLoader().getResource(DATE_FORMAT_PROPERTIES)).openStream());
+    return dateProperties.getProperty(DATE_FORMAT);
   }
 }

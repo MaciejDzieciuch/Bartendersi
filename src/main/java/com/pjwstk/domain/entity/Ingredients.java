@@ -28,7 +28,7 @@ public class Ingredients {
   @NotNull
   private String measure;
 
-  @ManyToMany(mappedBy = "Ingredients")
+  @ManyToMany(mappedBy = "ingredients")
   private List<Recipe> recipes = new ArrayList<>();
 
   public int getId() {
