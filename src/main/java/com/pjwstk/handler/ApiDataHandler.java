@@ -4,6 +4,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.service.parsermanager.ApiConsumer;
 import com.pjwstk.service.parsermanager.ParserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
@@ -18,6 +21,8 @@ public class ApiDataHandler {
   @Inject
   private ParserService parserService;
 
+  private Logger logger = LoggerFactory.getLogger(getClass().getName());
+
   @EJB
   private ApiConsumer apiConsumer;
 
@@ -27,9 +32,10 @@ public class ApiDataHandler {
       if (!jsonContent.equals(NULL_JSON_CONTENT)) {
         JsonNode jsonNode = parserService.getParsingDataFromAPI(jsonContent);
         List<RecipeResponse> recipeResponses = (List<RecipeResponse>) parserService.parse(jsonNode);
+        logger.info("All data from api was parsed");
       }
     } catch (IOException e) {
-      e.printStackTrace();
+      logger.error(e.getMessage());
     }
   }
 }
