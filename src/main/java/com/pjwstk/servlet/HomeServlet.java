@@ -3,6 +3,9 @@ package com.pjwstk.servlet;
 import com.pjwstk.freemarker.TemplateProvider;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -20,6 +23,8 @@ public class HomeServlet extends HttpServlet {
   @Inject
   private TemplateProvider templateProvider;
 
+  private Logger logger = LoggerFactory.getLogger(getClass().getName());
+
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
@@ -31,9 +36,10 @@ public class HomeServlet extends HttpServlet {
     PrintWriter printWriter = resp.getWriter();
 
     try {
+      logger.info("Data Model loaded to freemarker template");
       template.process(dataModel, printWriter);
     } catch (TemplateException e) {
-      e.printStackTrace();
+      logger.error(e.getMessage());
     }
   }
 }
