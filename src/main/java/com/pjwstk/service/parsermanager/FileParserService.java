@@ -1,6 +1,5 @@
 package com.pjwstk.service.parsermanager;
 
-import com.pjwstk.dao.CategoryDao;
 import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.domain.entity.Category;
 import com.pjwstk.mapper.CategoryMapper;

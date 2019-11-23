@@ -31,6 +31,7 @@ public class CategoryDao {
     Query query = entityManager.createNamedQuery("Category.getCategoryList");
     return query.getResultList();
   }
+
   public Category findCategoryByName(String name) {
     Query query = entityManager.createNamedQuery("Category.findCategoryByName");
     query.setParameter("name", name);
