@@ -52,7 +52,7 @@ public class Recipe {
   private String drinkType;
 
   @Column(name = "Glass_Type")
-  //@NotNull
+  @NotNull
   private String glassType;
 
   @Column(name = "Modification_Date")

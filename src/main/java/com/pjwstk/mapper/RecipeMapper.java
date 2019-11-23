@@ -25,6 +25,7 @@ public class RecipeMapper {
     recipe.setApproved(true);
     recipe.setInstruction(recipeResponse.getInstruction());
     recipe.setDrinkType(recipeResponse.getDrinkType());
+    recipe.setGlassType(recipeResponse.getGlassType());
     recipe.setModificationDate(recipeResponse.getModificationDate());
     recipe.setImageUrl(recipeResponse.getImageUrl());
     recipe.setCategory(category);

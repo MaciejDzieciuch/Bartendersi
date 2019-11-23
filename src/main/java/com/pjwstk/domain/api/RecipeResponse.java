@@ -30,7 +30,7 @@ public class RecipeResponse {
   @JsonProperty("strAlcoholic")
   private String drinkType;
 
-  @JsonProperty("strDrinkThumb")
+  @JsonProperty("strGlass")
   private String glassType;
 
   @JsonProperty("dateModified")
