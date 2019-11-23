@@ -1,0 +1,1 @@
+<div class="footer">Project created by <strong>Bartenders&copy; </strong>${.now?string.yyyy}.</div>
