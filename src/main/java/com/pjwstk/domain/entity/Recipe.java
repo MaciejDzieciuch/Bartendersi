@@ -12,17 +12,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "Recipe")
+@NamedQueries({
+    @NamedQuery(
+        name = "Recipe.getRecipesList",
+        query = "SELECT r FROM Recipe r WHERE r.isApproved = true")
+})
 public class Recipe {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "ID")
   private Long id;
+
+  @Column(name = "name", unique = true, length = 100)
+  @NotNull
+  private String name;
 
   @Column(name = "ID_Custom")
   @NotNull
@@ -32,7 +43,7 @@ public class Recipe {
   @NotNull
   private boolean isApproved;
 
-  @Column(name = "Instruction")
+  @Column(name = "Instruction", length = 10000)
   @NotNull
   private String instruction;
 
@@ -41,14 +52,14 @@ public class Recipe {
   private String drinkType;
 
   @Column(name = "Glass_Type")
-  @NotNull
+  //@NotNull
   private String glassType;
 
   @Column(name = "Modification_Date")
   @NotNull
   private String modificationDate;
 
-  @Column(name = "image_url")
+  @Column(name = "image_url", length = 1000)
   @NotNull
   private String imageUrl;
 
@@ -72,6 +83,14 @@ public class Recipe {
 
   public void setId(Long id) {
     this.id = id;
+  }
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
   public boolean isCustom() {
