@@ -5,14 +5,13 @@ import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.service.parsermanager.ApiConsumer;
 import com.pjwstk.service.parsermanager.FileParserService;
 import com.pjwstk.service.parsermanager.ParserService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Stateless
 public class ApiDataHandler {
