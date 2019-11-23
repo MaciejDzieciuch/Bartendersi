@@ -20,7 +20,7 @@ public class Ingredients {
   @Column(name = "ID")
   private int id;
 
-  @Column(name = "Name")
+  @Column(name = "Name", length = 100)
   @NotNull
   private String name;
 

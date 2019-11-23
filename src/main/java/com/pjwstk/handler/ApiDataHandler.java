@@ -3,6 +3,7 @@ package com.pjwstk.handler;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.service.parsermanager.ApiConsumer;
+import com.pjwstk.service.parsermanager.FileParserService;
 import com.pjwstk.service.parsermanager.ParserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,12 +17,14 @@ import javax.inject.Inject;
 @Stateless
 public class ApiDataHandler {
 
+  private Logger logger = LoggerFactory.getLogger(getClass().getName());
   private static final String NULL_JSON_CONTENT = "{\"drinks\":null}";
 
   @Inject
   private ParserService parserService;
 
-  private Logger logger = LoggerFactory.getLogger(getClass().getName());
+  @EJB
+  private FileParserService fileParserService;
 
   @EJB
   private ApiConsumer apiConsumer;
@@ -32,10 +35,11 @@ public class ApiDataHandler {
       if (!jsonContent.equals(NULL_JSON_CONTENT)) {
         JsonNode jsonNode = parserService.getParsingDataFromAPI(jsonContent);
         List<RecipeResponse> recipeResponses = (List<RecipeResponse>) parserService.parse(jsonNode);
-        logger.info("All data from api was parsed");
+        fileParserService.loadDataToDatabase(recipeResponses);
       }
     } catch (IOException e) {
       logger.error(e.getMessage());
     }
+    logger.info("All data from api was parsed");
   }
 }

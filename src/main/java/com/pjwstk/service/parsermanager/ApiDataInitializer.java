@@ -25,10 +25,10 @@ public class ApiDataInitializer {
   @PostConstruct
   protected void init() {
     int num = 48;
-    logger.info("Load each drink from api by alphabet letter");
     while (num++ <= 90) {
       char sign = (char) num;
       apiDataHandler.parseDataFromAPI(URI + sign);
+      logger.info("Load each drink from api: {}", URI + sign);
     }
   }
 }
