@@ -1,4 +1,4 @@
-package com.pjwstk.service.parsermanager;
+package com.pjwstk.service.parsemanager;
 
 import com.pjwstk.dao.RecipeDao;
 import com.pjwstk.domain.entity.Recipe;

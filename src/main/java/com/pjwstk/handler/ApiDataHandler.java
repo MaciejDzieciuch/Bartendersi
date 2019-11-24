@@ -2,9 +2,9 @@ package com.pjwstk.handler;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.pjwstk.domain.api.RecipeResponse;
-import com.pjwstk.service.parsermanager.ApiConsumer;
-import com.pjwstk.service.parsermanager.FileParserService;
-import com.pjwstk.service.parsermanager.ParserService;
+import com.pjwstk.service.parsemanager.ApiConsumer;
+import com.pjwstk.service.parsemanager.FileParserService;
+import com.pjwstk.service.parsemanager.ParserService;
 import java.io.IOException;
 import java.util.List;
 import javax.ejb.EJB;

@@ -3,7 +3,7 @@ package com.pjwstk.domain.api;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.pjwstk.service.parsermanager.RecipeDeserializer;
+import com.pjwstk.service.parsemanager.RecipeDeserializer;
 import java.util.HashMap;
 import java.util.Map;
 
