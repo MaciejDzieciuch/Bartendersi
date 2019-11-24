@@ -1,4 +1,4 @@
-package com.pjwstk.service.parsermanager;
+package com.pjwstk.service.parsemanager;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;

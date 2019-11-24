@@ -1,4 +1,4 @@
-package com.pjwstk.service.parsermanager;
+package com.pjwstk.service.parsemanager;
 
 import com.pjwstk.handler.ApiDataHandler;
 import javax.annotation.PostConstruct;
