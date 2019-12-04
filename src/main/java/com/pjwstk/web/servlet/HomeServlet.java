@@ -1,4 +1,4 @@
-package com.pjwstk.servlet;
+package com.pjwstk.web.servlet;
 
 import com.pjwstk.freemarker.TemplateProvider;
 import freemarker.template.Template;
@@ -19,18 +19,28 @@ import org.slf4j.LoggerFactory;
 @WebServlet("/home")
 public class HomeServlet extends HttpServlet {
 
+  private static final String USER_TYPE = "userType";
+  private Logger logger = LoggerFactory.getLogger(getClass().getName());
+
   @Inject
   private TemplateProvider templateProvider;
-
-  private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
 
+    String userType;
+
+    if (req.getSession().getAttribute(USER_TYPE) == null) {
+      userType = "guest";
+    } else {
+      userType = String.valueOf(req.getSession().getAttribute(USER_TYPE));
+    }
+
     Template template = templateProvider.getTemplate(getServletContext(), "home.ftlh");
 
     Map<String, Object> dataModel = new HashMap<>();
+    dataModel.put(USER_TYPE, userType);
 
     PrintWriter printWriter = resp.getWriter();
 

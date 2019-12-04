@@ -1,4 +1,4 @@
-package com.pjwstk.mapper;
+package com.pjwstk.web.mapper;
 
 import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.domain.entity.Ingredients;

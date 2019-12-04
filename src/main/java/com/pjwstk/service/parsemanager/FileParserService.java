@@ -2,8 +2,8 @@ package com.pjwstk.service.parsemanager;
 
 import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.domain.entity.Category;
-import com.pjwstk.mapper.CategoryMapper;
-import com.pjwstk.mapper.RecipeMapper;
+import com.pjwstk.web.mapper.CategoryMapper;
+import com.pjwstk.web.mapper.RecipeMapper;
 import java.util.List;
 import java.util.Optional;
 import javax.ejb.EJB;

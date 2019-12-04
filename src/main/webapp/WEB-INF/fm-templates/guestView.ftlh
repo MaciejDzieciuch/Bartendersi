@@ -18,19 +18,7 @@
               <a class="nav-link" href="#">By types of Glass</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Names of Glass</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Brawer</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Random Drink</a>
-            </li>
-            <li class="nav-item">
               <a class="nav-link" href="#">Most Popular</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Your Best</a>
             </li>
           </ul>
           <div class="login">
