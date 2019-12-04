@@ -45,7 +45,6 @@ public class HomeServlet extends HttpServlet {
     PrintWriter printWriter = resp.getWriter();
 
     try {
-      logger.info("Data Model loaded to freemarker template");
       template.process(dataModel, printWriter);
     } catch (TemplateException e) {
       logger.error(e.getMessage());
