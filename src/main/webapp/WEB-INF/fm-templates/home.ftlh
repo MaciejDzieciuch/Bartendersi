@@ -23,9 +23,13 @@
 </head>
 <body>
 
-<#include "./barware.ftlh">
+<#if userType??>
+  <#include "${userType}View.ftlh">
+<#else>
+    <#include "guestView.ftlh">
+</#if>
 
-<#include "./footer.ftlh">
+<#include "footer.ftlh">
 
 </body>
 </html>

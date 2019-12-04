@@ -1,4 +1,4 @@
-package com.pjwstk.servlet;
+package com.pjwstk.web.servlet;
 
 import com.pjwstk.domain.entity.Recipe;
 import com.pjwstk.freemarker.TemplateProvider;
@@ -20,7 +20,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @MultipartConfig
-@WebServlet("/home/upload-data")
+@WebServlet("/admin/upload-data")
 public class LoadFileFromJsonServlet extends HttpServlet {
 
   @Inject
