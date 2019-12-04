@@ -23,7 +23,7 @@
 </head>
 <body>
 
-<#include "./adminView.ftlh">
+<#include "./barware.ftlh">
 
 <#include "./footer.ftlh">
 
