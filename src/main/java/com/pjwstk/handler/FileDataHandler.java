@@ -2,7 +2,8 @@ package com.pjwstk.handler;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.pjwstk.domain.api.RecipeResponse;
-import com.pjwstk.service.parsemanager.FileParserService;
+import com.pjwstk.exception.UploadFileNotFound;
+import com.pjwstk.service.parsemanager.DataParserService;
 import com.pjwstk.service.parsemanager.ParserService;
 import com.pjwstk.service.uploadmanager.FileUploadService;
 import java.io.File;
@@ -25,11 +26,11 @@ public class FileDataHandler {
   private ParserService parserService;
 
   @EJB
-  private FileParserService fileParserService;
+  private DataParserService dataParserService;
 
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
-  public <T> Object dataUploadHandler(Part part) {
+  public <T> Object dataUploadHandler(Part part) throws UploadFileNotFound {
 
     Object outputObject = null;
     try {
@@ -37,7 +38,7 @@ public class FileDataHandler {
       JsonNode jsonNode = parserService.getParsingDataFromFile(file);
       List<RecipeResponse> recipeResponseList = (List<RecipeResponse>) parserService
           .parse(jsonNode);
-      outputObject = fileParserService.loadDataToDatabase(recipeResponseList);
+      outputObject = dataParserService.loadDataToDatabase(recipeResponseList);
     } catch (IOException e) {
       logger.error(e.getMessage());
     }

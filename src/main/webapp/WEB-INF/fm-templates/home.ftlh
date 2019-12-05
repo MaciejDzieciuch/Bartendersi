@@ -29,6 +29,9 @@
     <#include "guestView.ftlh">
 </#if>
 
+
+<#include "content${function}.ftlh">
+
 <#include "footer.ftlh">
 
 </body>

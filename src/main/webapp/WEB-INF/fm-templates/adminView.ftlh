@@ -15,7 +15,7 @@
               <a class="nav-link" href="#">Main Page</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Data Upload</a>
+              <a class="nav-link" href="/admin/upload-data">Data Upload</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Recipes</a>
@@ -35,17 +35,5 @@
       </nav>
     </div>
   </header>
-  <main>
-    <div class="container main_con">
-      <div class="row">
-        <div class="col-md">
-          <img src="/img/drink1.jpg" class="img-fluid main_img rounded mx-auto d-block"
-               alt="Responsive image">
-        </div>
-        <div class="admin_page">
-          <h1>Welcome on admin view</h1>
-        </div>
-      </div>
-    </div>
-  </main>
+
 </div>

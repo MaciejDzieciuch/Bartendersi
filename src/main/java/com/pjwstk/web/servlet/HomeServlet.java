@@ -41,6 +41,7 @@ public class HomeServlet extends HttpServlet {
 
     Map<String, Object> dataModel = new HashMap<>();
     dataModel.put(USER_TYPE, userType);
+    dataModel.put("function", "Home");
 
     PrintWriter printWriter = resp.getWriter();
 
