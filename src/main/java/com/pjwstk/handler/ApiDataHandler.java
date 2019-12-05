@@ -3,7 +3,7 @@ package com.pjwstk.handler;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.service.parsemanager.ApiConsumer;
-import com.pjwstk.service.parsemanager.FileParserService;
+import com.pjwstk.service.parsemanager.DataParserService;
 import com.pjwstk.service.parsemanager.ParserService;
 import java.io.IOException;
 import java.util.List;
@@ -23,7 +23,7 @@ public class ApiDataHandler {
   private ParserService parserService;
 
   @EJB
-  private FileParserService fileParserService;
+  private DataParserService dataParserService;
 
   @EJB
   private ApiConsumer apiConsumer;
@@ -34,7 +34,7 @@ public class ApiDataHandler {
       if (!jsonContent.equals(NULL_JSON_CONTENT)) {
         JsonNode jsonNode = parserService.getParsingDataFromAPI(jsonContent);
         List<RecipeResponse> recipeResponses = (List<RecipeResponse>) parserService.parse(jsonNode);
-        fileParserService.loadDataToDatabase(recipeResponses);
+        dataParserService.loadDataToDatabase(recipeResponses);
       }
     } catch (IOException e) {
       logger.error(e.getMessage());

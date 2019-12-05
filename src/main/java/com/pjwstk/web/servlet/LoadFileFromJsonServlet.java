@@ -1,6 +1,7 @@
 package com.pjwstk.web.servlet;
 
 import com.pjwstk.domain.entity.Recipe;
+import com.pjwstk.exception.UploadFileNotFound;
 import com.pjwstk.freemarker.TemplateProvider;
 import com.pjwstk.handler.FileDataHandler;
 import freemarker.template.Template;
@@ -36,10 +37,14 @@ public class LoadFileFromJsonServlet extends HttpServlet {
       throws ServletException, IOException {
 
     resp.setContentType("text/html;charset=UTF-8");
-    Template template = templateProvider.getTemplate(getServletContext(), "uploadManager.ftlh");
-    Map<String, Object> model = new HashMap<>();
+    Template template = templateProvider.getTemplate(getServletContext(), "home.ftlh");
+
+    Map<String, Object> dataModel = new HashMap<>();
+    dataModel.put("userType", "admin");
+    dataModel.put("function", "UploadFile");
+
     try {
-      template.process(model, resp.getWriter());
+      template.process(dataModel, resp.getWriter());
     } catch (TemplateException e) {
       logger.error(e.getMessage());
     }
@@ -50,8 +55,12 @@ public class LoadFileFromJsonServlet extends HttpServlet {
       throws ServletException, IOException {
 
     Part part = req.getPart("drinks");
-    String fileUrl = "/drinks/" + fileDataHandler.dataUploadHandler(part);
-
+    String fileUrl = "";
+    try {
+      fileUrl = "/drinks/" + fileDataHandler.dataUploadHandler(part);
+    } catch (UploadFileNotFound e) {
+      logger.error(e.getMessage());
+    }
     Recipe recipe = new Recipe();
     recipe.setImageUrl(fileUrl);
     req.getSession().setAttribute("fileUpload", true);

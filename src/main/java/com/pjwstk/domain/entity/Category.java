@@ -1,7 +1,7 @@
 package com.pjwstk.domain.entity;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -38,7 +38,7 @@ public class Category {
   private String name;
 
   @OneToMany(mappedBy = "category", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-  private List<Recipe> recipes = new ArrayList<>();
+  private Set<Recipe> recipes = new HashSet<>();
 
   public int getId() {
     return id;
@@ -56,11 +56,11 @@ public class Category {
     this.name = name;
   }
 
-  public List<Recipe> getRecipes() {
+  public Set<Recipe> getRecipes() {
     return recipes;
   }
 
-  public void setRecipes(List<Recipe> recipes) {
+  public void setRecipes(Set<Recipe> recipes) {
     this.recipes = recipes;
   }
 }
