@@ -51,15 +51,19 @@ public class FilteringService {
     return recipeService.findRecipeByCategoryIdAndType(categories, drinkTypes);
   }
 
-  public List<Recipe> getFavouritesFilters(List<Long> ids, List<String> names, List<String> types, Long userId) {
+  public List<Recipe> getFavouritesFilters(List<Long> ids, List<String> names, List<String> types,
+      Long userId) {
     List<Category> categories = categoryDao.getCategoriesById(ids);
     List<Ingredients> ingredients = ingredientDao.getIngredientsByName(names);
     List<String> drinkTypes = recipeDao.getRecipeTypeByName(types);
     long namesLength = names.size();
-    return recipeService.findFavouriteByCategoryIdAndIngredientAndType(categories, ingredients, namesLength, drinkTypes, userId);
+    return recipeService
+        .findFavouriteByCategoryIdAndIngredientAndType(categories, ingredients, namesLength,
+            drinkTypes, userId);
   }
 
-  public List<Recipe> getFavouritesFiltersByCategoryAndType(List<Long> ids, List<String> types, Long userId) {
+  public List<Recipe> getFavouritesFiltersByCategoryAndType(List<Long> ids, List<String> types,
+      Long userId) {
     List<Category> categories = categoryDao.getCategoriesById(ids);
     List<String> drinkTypes = recipeDao.getRecipeTypeByName(types);
     return recipeService.findFavouriteRecipeByCategoryIdAndType(categories, drinkTypes, userId);

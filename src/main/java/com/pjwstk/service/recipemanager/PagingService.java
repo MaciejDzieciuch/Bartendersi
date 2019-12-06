@@ -38,21 +38,31 @@ public class PagingService {
     return (recipes.size() + pageSize - 1) / pageSize;
   }
 
-  public List<Recipe> filterContentList(List<String> checkedOptionList, List<String> checkedIngredientsList, List<Long> parsedToLongCategoriesList, List<String> checkedTypesList, Long userId) {
+  public List<Recipe> filterContentList(List<String> checkedOptionList,
+      List<String> checkedIngredientsList, List<Long> parsedToLongCategoriesList,
+      List<String> checkedTypesList, Long userId) {
 
     List<Recipe> listWithFilters;
 
     if (checkedOptionList.contains("All Drinks")) {
-      if (checkedIngredientsList.size() == 0 || checkedIngredientsList == null || checkedIngredientsList.isEmpty()) {
-        listWithFilters = filteringService.getFiltersByCategoryAndType(parsedToLongCategoriesList, checkedTypesList);
+      if (checkedIngredientsList.size() == 0 || checkedIngredientsList == null
+          || checkedIngredientsList.isEmpty()) {
+        listWithFilters = filteringService
+            .getFiltersByCategoryAndType(parsedToLongCategoriesList, checkedTypesList);
       } else {
-        listWithFilters = filteringService.getAllFilters(parsedToLongCategoriesList, checkedIngredientsList, checkedTypesList);
+        listWithFilters = filteringService
+            .getAllFilters(parsedToLongCategoriesList, checkedIngredientsList, checkedTypesList);
       }
     } else {
-      if (checkedIngredientsList.size() == 0 || checkedIngredientsList == null || checkedIngredientsList.isEmpty()) {
-        listWithFilters = filteringService.getFavouritesFiltersByCategoryAndType(parsedToLongCategoriesList, checkedTypesList, userId);
-      } else  {
-        listWithFilters = filteringService.getFavouritesFilters(parsedToLongCategoriesList, checkedIngredientsList, checkedTypesList, userId);
+      if (checkedIngredientsList.size() == 0 || checkedIngredientsList == null
+          || checkedIngredientsList.isEmpty()) {
+        listWithFilters = filteringService
+            .getFavouritesFiltersByCategoryAndType(parsedToLongCategoriesList, checkedTypesList,
+                userId);
+      } else {
+        listWithFilters = filteringService
+            .getFavouritesFilters(parsedToLongCategoriesList, checkedIngredientsList,
+                checkedTypesList, userId);
       }
     }
     return listWithFilters;

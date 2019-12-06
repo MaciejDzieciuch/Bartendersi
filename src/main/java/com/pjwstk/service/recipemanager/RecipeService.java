@@ -34,20 +34,27 @@ public class RecipeService {
     return recipeDao.getRecipeTypes();
   }
 
-  public List<Recipe> findRecipeByCategoryIdAndIngredientAndType(List<Category> categories, List<Ingredients> ingredients, List<String> drinkTypes, long namesLength) {
-    return recipeDao.findRecipeByCategoryIdAndIngredientAndType(categories, ingredients, drinkTypes, namesLength);
+  public List<Recipe> findRecipeByCategoryIdAndIngredientAndType(List<Category> categories,
+      List<Ingredients> ingredients, List<String> drinkTypes, long namesLength) {
+    return recipeDao.findRecipeByCategoryIdAndIngredientAndType(categories, ingredients, drinkTypes,
+        namesLength);
   }
 
-  public List<Recipe> findRecipeByCategoryIdAndType(List<Category> categories, List<String> drinkTypes) {
+  public List<Recipe> findRecipeByCategoryIdAndType(List<Category> categories,
+      List<String> drinkTypes) {
     return recipeDao.findRecipeByCategoryIdAndType(categories, drinkTypes);
   }
 
-  public List<Recipe> findFavouriteRecipeByCategoryIdAndType(List<Category> categories, List<String> drinkTypes, Long userId) {
+  public List<Recipe> findFavouriteRecipeByCategoryIdAndType(List<Category> categories,
+      List<String> drinkTypes, Long userId) {
     return recipeDao.findFavouriteRecipeByCategoryIdAndType(categories, drinkTypes, userId);
   }
 
-  public List<Recipe> findFavouriteByCategoryIdAndIngredientAndType(List<Category> categories, List<Ingredients> ingredients, long namesLength, List<String> drinkTypes, Long userId) {
-    return recipeDao.findFavouriteByCategoryIdAndIngredientAndType(categories, ingredients, namesLength, drinkTypes, userId);
+  public List<Recipe> findFavouriteByCategoryIdAndIngredientAndType(List<Category> categories,
+      List<Ingredients> ingredients, long namesLength, List<String> drinkTypes, Long userId) {
+    return recipeDao
+        .findFavouriteByCategoryIdAndIngredientAndType(categories, ingredients, namesLength,
+            drinkTypes, userId);
   }
 
   @Transactional

@@ -52,8 +52,10 @@ public class RecipeDao {
     return query.getResultList();
   }
 
-  public List<Recipe> findRecipeByCategoryIdAndIngredientAndType(List<Category> categories, List<Ingredients> ingredients, List<String> drinkTypes, long namesLength) {
-    Query query = entityManager.createNamedQuery("Recipe.findRecipeByCategoryIdAndIngredientNameAndType");
+  public List<Recipe> findRecipeByCategoryIdAndIngredientAndType(List<Category> categories,
+      List<Ingredients> ingredients, List<String> drinkTypes, long namesLength) {
+    Query query = entityManager
+        .createNamedQuery("Recipe.findRecipeByCategoryIdAndIngredientNameAndType");
     query.setParameter("categories", categories);
     query.setParameter("ingredients", ingredients);
     query.setParameter("drinkTypes", drinkTypes);
@@ -61,23 +63,28 @@ public class RecipeDao {
     return query.getResultList();
   }
 
-  public List<Recipe> findRecipeByCategoryIdAndType(List<Category> categories, List<String> drinkTypes) {
+  public List<Recipe> findRecipeByCategoryIdAndType(List<Category> categories,
+      List<String> drinkTypes) {
     Query query = entityManager.createNamedQuery("Recipe.findRecipeByCategoryIdAndType");
     query.setParameter("categories", categories);
     query.setParameter("drinkTypes", drinkTypes);
     return query.getResultList();
   }
 
-  public List<Recipe> findFavouriteRecipeByCategoryIdAndType(List<Category> categories, List<String> drinkTypes, Long userId) {
-    Query query = entityManager.createNamedQuery("Recipe.findRecipeByCategoryIdAndTypeAndFavourites");
+  public List<Recipe> findFavouriteRecipeByCategoryIdAndType(List<Category> categories,
+      List<String> drinkTypes, Long userId) {
+    Query query = entityManager
+        .createNamedQuery("Recipe.findRecipeByCategoryIdAndTypeAndFavourites");
     query.setParameter("categories", categories);
     query.setParameter("drinkTypes", drinkTypes);
     query.setParameter("id", userId);
     return query.getResultList();
   }
 
-  public List<Recipe> findFavouriteByCategoryIdAndIngredientAndType(List<Category> categories, List<Ingredients> ingredients, long namesLength, List<String> drinkTypes, Long userId) {
-    Query query = entityManager.createNamedQuery("Recipe.findRecipeByCategoryAndIngredientAndTypeAndFavourites");
+  public List<Recipe> findFavouriteByCategoryIdAndIngredientAndType(List<Category> categories,
+      List<Ingredients> ingredients, long namesLength, List<String> drinkTypes, Long userId) {
+    Query query = entityManager
+        .createNamedQuery("Recipe.findRecipeByCategoryAndIngredientAndTypeAndFavourites");
     query.setParameter("categories", categories);
     query.setParameter("ingredients", ingredients);
     query.setParameter("namesLength", namesLength);
