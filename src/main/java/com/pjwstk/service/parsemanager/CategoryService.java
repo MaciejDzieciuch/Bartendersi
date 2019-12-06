@@ -39,4 +39,8 @@ public class CategoryService {
     logger.info("Ingredients name: {} found in DB", name);
     return categoryDao.findCategoryByName(name);
   }
+
+  public String[] getCategoryIds() {
+    return categoryDao.getCategoryIds();
+  }
 }
