@@ -8,8 +8,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+@NamedQueries({
+    @NamedQuery(
+        name = "Ingredients.findIngredientByName",
+        query = "SELECT DISTINCT i.name FROM Ingredients i WHERE i.name IN :names"),
+    @NamedQuery(
+        name = "Ingredient.getIngredientList",
+        query = "SELECT DISTINCT i.name FROM Ingredients i")
+})
 
 @Entity
 @Table(name = "Ingredients")

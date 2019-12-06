@@ -11,8 +11,19 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
+
+@NamedQueries({
+    @NamedQuery(
+        name = "User.getUsersList",
+        query = "SELECT u FROM User u"),
+    @NamedQuery(
+        name = "User.findUserByEmail",
+        query = "SELECT u FROM User u WHERE u.email LIKE :email")
+})
 
 @Entity
 @Table(name = "User")
