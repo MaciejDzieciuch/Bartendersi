@@ -1,21 +1,17 @@
 <main>
-  <div class="container main_con">
+  <div class="container main_con drink_content">
     <div class="container">
       <div class="row">
-        <div class="col-sm-3">
-          <button class="btn btn-primary" id="new-drink2" type="button" title="Create a new recipe!"
-                  value="new-drink">
-          </button>
-        </div>
+
         <div class="col-sm-6" id="search-container">
           <ul class="nav nav-tabs nav-justified" style="margin: 0px" id="navTab" role="tablist">
             <li class="nav-item">
               <a
-                      <#if isActive?? && isActive == "ingredient">
-                        class="col-md text-sm-center nav-link"
-                      <#else>
-                        class="col-md text-sm-center nav-link active"
-                      </#if>
+                  <#if isActive?? && isActive == "ingredient">
+                    class="col-md text-sm-center nav-link"
+                  <#else>
+                    class="col-md text-sm-center nav-link active"
+                  </#if>
                   id="name-tab"
                   data-target="#panel_a_name"
                   data-secondary="#panel_a_name" href="#panel_a_name" data-toggle="tab" role="tab"
@@ -25,11 +21,11 @@
             </li>
             <li class="nav-item">
               <a
-                      <#if isActive?? && isActive == "ingredient">
-                        class="col-md text-sm-center nav-link active"
-                      <#else>
-                        class="col-md text-sm-center nav-link"
-                      </#if>
+                  <#if isActive?? && isActive == "ingredient">
+                    class="col-md text-sm-center nav-link active"
+                  <#else>
+                    class="col-md text-sm-center nav-link"
+                  </#if>
                   id="ingredient-tab"
                   data-target="#panel_a_name"
                   data-secondary="#panel_a_ingredient" href="#panel_a_ingredient" data-toggle="tab"
@@ -42,11 +38,11 @@
 
           <div class="tab-content col-sm-12" id="navTabA">
             <div
-                    <#if isActive?? && isActive == "ingredient">
-                      class="tab-pane pane"
-                    <#else>
-                      class="tab-pane active"
-                    </#if>
+                <#if isActive?? && isActive == "ingredient">
+                  class="tab-pane pane"
+                <#else>
+                  class="tab-pane active"
+                </#if>
                 id="panel_a_name" role="tabpanel" aria-labelledby="name-tab">
               <form id="form-name">
                 <input type="text" id="input-name" class="form-control"
@@ -55,11 +51,11 @@
             </div>
 
             <div
-                    <#if isActive?? && isActive == "ingredient">
-                      class="tab-pane active"
-                    <#else>
-                      class="tab-pane"
-                    </#if>
+                <#if isActive?? && isActive == "ingredient">
+                  class="tab-pane active"
+                <#else>
+                  class="tab-pane"
+                </#if>
                 id="panel_a_ingredient" role="tabpanel" aria-labelledby="ingredient-tab">
               <form id="form-ingredient">
                 <input type="text" id="input-ingredient" class="form-control"
@@ -71,19 +67,18 @@
       </div>
     </div>
     <div class="container" id="list-ingredient">
-        <#include "ingredientList.ftlh">
+      <#include "ingredientList.ftlh">
     </div>
     <div class="row">
-      <div class="card col-sm-3">
-          <#include "categoryList.ftlh">
+      <div class="card col-sm-3 nav_drink">
+        <#include "categoryList.ftlh">
+        <#include "optionList.ftlh">
+        <#include "typeList.ftlh">
       </div>
-      <div class="card col-sm-6">
-          <#include "userContent.ftlh">
+      <div class="col-sm-6 drink_content_2">
+        <#include "userContent.ftlh">
       </div>
-      <div class="card col-sm-3" style="margin-top: 10%">
-          <#include "optionList.ftlh">
-          <#include "typeList.ftlh">
-      </div>
+
     </div>
   </div>
 
