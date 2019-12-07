@@ -18,7 +18,7 @@ public class PagingService {
 
   public List<Recipe> getRecipesPerPage(int pageNumber, List<Recipe> filterList) {
 
-    int pageSize = 5;
+    int pageSize = 16;
 
     if (pageSize <= 0 || pageNumber <= 0) {
       throw new IllegalArgumentException("Invalid page size: " + pageSize);
@@ -34,7 +34,7 @@ public class PagingService {
 
   public Integer getLastNumberPage(List<Recipe> recipes) {
 
-    int pageSize = 5;
+    int pageSize = 16;
     return (recipes.size() + pageSize - 1) / pageSize;
   }
 
