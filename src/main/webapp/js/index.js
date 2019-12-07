@@ -23,7 +23,7 @@ $formName.on('submit', () => {
   }
   if (listOfNames.some(recipe => recipe.name === $input.val())) {
     let recipeIds = listOfNames.filter(recipe => recipe.name === $input.val());
-    window.location = '/user/view?recipeId=' + recipeIds[0].id;
+    window.location = '/recipeView?recipeId=' + recipeIds[0].id;
   }
   $input.val('');
   return false;

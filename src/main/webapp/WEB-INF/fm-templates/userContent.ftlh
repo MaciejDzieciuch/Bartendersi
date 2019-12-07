@@ -3,7 +3,7 @@
       <div class="row"
            Style="border: ghostwhite solid; border-width: thin; border-radius: .5rem; margin-bottom: 5px;">
         <div class="col-sm-10" style="padding: 0px">
-          <a href="/recipe-view?recipeId=${recipe.id?c}" class="list-group-item recipe-link">
+          <a href="/recipeView?recipeId=${recipe.id?c}" class="list-group-item recipe-link">
             <div class="col-sm-3" style="padding: 0px">
                 <#if recipe.imageUrl??>
                   <img src="${recipe.imageUrl}"

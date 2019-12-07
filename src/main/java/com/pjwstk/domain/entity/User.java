@@ -32,7 +32,7 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "ID")
-  private int id;
+  private Long id;
 
   @Column(name = "Name")
   @NotNull
@@ -57,11 +57,11 @@ public class User {
       inverseJoinColumns = {@JoinColumn(name = "recipe_id", referencedColumnName = "ID")})
   private List<Recipe> recipes = new ArrayList<>();
 
-  public int getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

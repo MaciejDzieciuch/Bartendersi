@@ -2,11 +2,6 @@
   <div class="container main_con">
     <div class="container">
       <div class="row">
-        <div class="col-sm-3">
-          <button class="btn btn-primary" id="new-drink2" type="button" title="Create a new recipe!"
-                  value="new-drink">
-          </button>
-        </div>
         <div class="col-sm-6" id="search-container">
           <ul class="nav nav-tabs nav-justified" style="margin: 0px" id="navTab" role="tablist">
             <li class="nav-item">
