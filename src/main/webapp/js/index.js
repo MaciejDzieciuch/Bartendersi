@@ -245,7 +245,7 @@ function clickedFav(string, id) {
 $(document).ready(function () {
   $(".del").click(function () {
     $.ajax({
-      url: '/api/superHero/recipes/deleteRecipe/' + $(this).attr('data-id'),
+      url: '/api/admin/recipes/deleteRecipe/' + $(this).attr('data-id'),
       type: 'DELETE',
       success: function () {
         location.reload();
