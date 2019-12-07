@@ -108,7 +108,7 @@ public class RecipeServlet extends HttpServlet {
         || checkedCategoriesAndIngredientsAndTypes.isEmpty()) {
 
       dataModel.put("userType", "user");
-      dataModel.put("function", "Home");
+      dataModel.put("function", "Recipe");
       dataModel.put("isActive", active);
       dataModel.put("recipeListPerPage", recipesPerPage);
       dataModel.put("pageNumber", pageNo);
