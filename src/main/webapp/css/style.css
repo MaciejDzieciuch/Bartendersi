@@ -84,3 +84,24 @@
 .col {
   margin: 10px !important;
 }
+
+.form-check-label {
+  color: black !important;
+  margin-bottom: 0;
+}
+
+.card-title {
+  text-transform: uppercase !important;
+}
+
+.nav_drink {
+  float: left;
+}
+
+.drink_content {
+  margin-left: 0px !important;
+}
+
+.drink_content_2 {
+  margin-left: 25%;
+}

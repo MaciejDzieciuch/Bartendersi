@@ -1,5 +1,5 @@
 <main>
-  <div class="container main_con">
+  <div class="container main_con drink_content">
     <div class="container">
       <div class="row">
         <div class="col-sm-6" id="search-container">
@@ -69,16 +69,15 @@
         <#include "ingredientList.ftlh">
     </div>
     <div class="row">
-      <div class="card col-sm-3">
+      <div class="card col-sm-3 nav_drink">
           <#include "categoryList.ftlh">
-      </div>
-      <div class="card col-sm-6">
-          <#include "userContent.ftlh">
-      </div>
-      <div class="card col-sm-3" style="margin-top: 10%">
           <#include "optionList.ftlh">
           <#include "typeList.ftlh">
       </div>
+      <div class="col-sm-6 drink_content_2">
+          <#include "userContent.ftlh">
+      </div>
+
     </div>
   </div>
 
