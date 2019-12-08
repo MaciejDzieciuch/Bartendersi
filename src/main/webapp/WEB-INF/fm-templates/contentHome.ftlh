@@ -49,38 +49,5 @@
   </div>
 </div>
 <main>
-  <div class="container main_con">
-    <div class="row">
-      <div class="col-md">
-        <img src="/img/drink1.jpg" class="img-fluid main_img rounded mx-auto d-block"
-             alt="Responsive image">
-      </div>
-      <div class="col-md">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <h1>Name of drink</h1>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col border border-dark rounded ingre">
-              <ul>
-                <li>ingredients 1</li>
-                <li>ingredients 2</li>
-                <li>ingredients 3</li>
-                <li>ingredients 4</li>
-                <li>ingredients 5</li>
-              </ul>
-            </div>
-            <div class="col border border-dark rounded">
-              2 of 3
-            </div>
-            <div class="col border border-dark rounded">
-              3 of 3
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+
 </main>

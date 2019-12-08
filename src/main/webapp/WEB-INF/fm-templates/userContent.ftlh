@@ -1,20 +1,22 @@
 <#list recipeListPerPage>
-<div class="row">
-  <#items as recipe>
-      <div class="col" style="padding: 0px">
-        <a href="/recipe-view?recipeId=${recipe.id?c}" class="list-group-item recipe-link">
-          <div class="col-sm-3" style="padding: 0px">
+  <div class="row">
+    <#items as recipe>
+      <div class="col border border-dark rounded">
+        <a href="/recipeView?recipeId=${recipe.id?c}">
+          <div class="col">
+            <div class="border border-dark rounded">
+              <p>${recipe.name}</p>
+            </div>
             <#if recipe.imageUrl??>
-              <img src="${recipe.imageUrl}"
-            <#else>  <img src="http://placekitten.com/500/500"
+            <#else>
+              <img src="http://placekitten.com/500/500">
             </#if>
-            <img src="${recipe.imageUrl}"
-                 style="max-width: 90%;" class="card-img" alt="...">
+            <img src="${recipe.imageUrl}" class="card-img" alt="...">
           </div>
-          <div class="col-sm-9" style="padding: 0px; padding-top:4% ">
-            <div class="card-body" style="padding: 0px">
-              <h4 class="card-title">${recipe.name}</h4>
-              <div class="col-md-2" style="padding:0; padding-top: 7%">
+          <div class="col">
+            <div>
+
+              <div class="col">
                 <#if userType !="guest">
                   <#if favouriteIdsChecked?seq_contains(recipe.id)>
 
@@ -45,9 +47,7 @@
           </div>
         </a>
       </div>
-
-
-  </#items>
+    </#items>
   </div>
 </#list>
 

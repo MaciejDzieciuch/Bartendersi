@@ -67,18 +67,18 @@
       </div>
     </div>
     <div class="container" id="list-ingredient">
-      <#include "ingredientList.ftlh">
-    </div>
-    <div class="row">
-      <div class="card col-sm-3 nav_drink">
-        <#include "categoryList.ftlh">
-        <#include "optionList.ftlh">
-        <#include "typeList.ftlh">
-      </div>
-      <div class="col-sm-6 drink_content_2">
-        <#include "userContent.ftlh">
-      </div>
 
+      <div class="row">
+        <div class="col_category col border border-dark rounded">
+          <#include "ingredientList.ftlh">
+          <#include "categoryList.ftlh">
+          <#include "optionList.ftlh">
+          <#include "typeList.ftlh">
+        </div>
+        <div class="col_drink">
+          <#include "userContent.ftlh">
+        </div>
+      </div>
     </div>
   </div>
 

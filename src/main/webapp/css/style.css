@@ -84,19 +84,65 @@
 .col {
   margin: 10px !important;
 }
+
 .form-check-label {
   color: black !important;
   margin-bottom: 0;
 }
-.card-title{
+
+.card-title {
   text-transform: uppercase !important;
 }
-.nav_drink{
+
+.nav_drink {
   float: left;
+  margin: 30px 100px 15px 0px;
 }
-.drink_content{
+
+}
+.drink_content {
   margin-left: 0px !important;
 }
-.drink_content_2{
+
+.drink_content_2 {
   margin-left: 25%;
 }
+
+.drink_content_2 {
+
+}
+
+.col_drink {
+  width: 75%;
+  margin: auto;
+}
+
+.main_drink {
+  float: right;
+}
+
+.paginator {
+  float: bottom;
+}
+
+.col_category {
+  float: left;
+  width: 20%;
+  position: relative;
+  margin-right: 15px;
+  margin-top: 15px;
+}
+
+.col_recipe {
+  width: 15%;
+}
+
+.row {
+  margin-left: 0px !important;
+}
+
+body {
+  max-width: 1800px;
+}
+
+>>> >>> > Stashed changes
