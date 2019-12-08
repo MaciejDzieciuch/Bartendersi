@@ -1,24 +1,24 @@
 <#list recipeListPerPage>
   <div class="row">
-      <#items as recipe>
-        <div class="col" style="padding: 0px">
-          <a href="/recipeView?recipeId=${recipe.id?c}" class="list-group-item recipe-link">
-            <div class="col-sm-3" style="padding: 0px">
-                <#if recipe.imageUrl??>
-                  <img src="${recipe.imageUrl}">
-                <#else>
-                  <img src="http://placekitten.com/500/500">
-                </#if>
-              <img src="${recipe.imageUrl}"
-                   style="max-width: 90%;" class="card-img" alt="...">
+    <#items as recipe>
+      <div class="col border border-dark rounded">
+        <a href="/recipeView?recipeId=${recipe.id?c}">
+          <div class="col">
+            <div class="border border-dark rounded">
+              <p>${recipe.name}</p>
             </div>
-            <div class="col-sm-9" style="padding: 0px; padding-top:4% ">
-              <div class="card-body" style="padding: 0px">
-                <h4 class="card-title">${recipe.name}</h4>
-                <div class="col-md-2" style="padding:0; padding-top: 7%">
-                    <#if userType !="guest">
-                        <#if favouriteIdsChecked?seq_contains(recipe.id)>
+            <#if recipe.imageUrl??>
+            <#else>
+              <img src="http://placekitten.com/500/500">
+            </#if>
+            <img src="${recipe.imageUrl}" class="card-img" alt="...">
+          </div>
+          <div class="col">
+            <div>
 
+              <div class="col">
+                <#if userType !="guest">
+                  <#if favouriteIdsChecked?seq_contains(recipe.id)>
                           <button class="btn btn-primary btn-sm x-fav" id="${recipe.id?c}"
                                   title="remove from favourites"
                                   onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
@@ -44,9 +44,10 @@
                 </div>
               </div>
             </div>
-          </a>
-        </div>
-      </#items>
+          </div>
+        </a>
+      </div>
+    </#items>
   </div>
 </#list>
 
