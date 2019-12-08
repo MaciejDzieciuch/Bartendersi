@@ -27,8 +27,10 @@ import javax.servlet.http.HttpServletResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@WebServlet("/user/recipe")
+@WebServlet("/recipe")
 public class RecipeServlet extends HttpServlet {
+
+  private static final String USER_TYPE = "userType";
 
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
@@ -99,6 +101,14 @@ public class RecipeServlet extends HttpServlet {
     Integer lastPageNumber = pagingService
         .getLastNumberPage(checkedCategoriesAndIngredientsAndTypes);
 
+    String userType;
+
+    if (req.getSession().getAttribute(USER_TYPE) == null) {
+      userType = "guest";
+    } else {
+      userType = String.valueOf(req.getSession().getAttribute(USER_TYPE));
+    }
+
     Template template = templateProvider.getTemplate(getServletContext(), "home.ftlh");
 
     Map<String, Object> dataModel = new HashMap<>();
@@ -107,7 +117,6 @@ public class RecipeServlet extends HttpServlet {
         || checkedCategoriesAndIngredientsAndTypes != null
         || checkedCategoriesAndIngredientsAndTypes.isEmpty()) {
 
-      dataModel.put("userType", "user");
       dataModel.put("function", "Recipe");
       dataModel.put("isActive", active);
       dataModel.put("recipeListPerPage", recipesPerPage);
@@ -123,6 +132,7 @@ public class RecipeServlet extends HttpServlet {
       dataModel.put("checkedListOption", checkedListOption);
       dataModel.put("favouriteIdsChecked", favouriteRecipeIdsFromUser);
       dataModel.put("name", req.getSession().getAttribute("name"));
+      dataModel.put(USER_TYPE, userType);
     }
     PrintWriter printWriter = resp.getWriter();
 

@@ -120,7 +120,7 @@ function checkFilters() {
     active: paramActive
   });
 
-  window.location = '/user/recipe?' + queryParams;
+  window.location = '/recipe?' + queryParams;
 }
 
 function listSelectedCategories() {
@@ -200,7 +200,7 @@ $(".favorite").click(function () {
     page: fired_button,
     active: paramActive
   });
-  window.location = '/user/recipe?' + queryParams;
+  window.location = '/recipe?' + queryParams;
 });
 
 $(".edition").click(function () {
@@ -220,7 +220,7 @@ $(".edition").click(function () {
     edition: edit_button,
     active: paramActive
   });
-  window.location = '/user/recipe?' + queryParams;
+  window.location = '/recipe?' + queryParams;
 });
 
 function clickedFav(string, id) {

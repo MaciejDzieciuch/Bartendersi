@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -22,11 +23,11 @@ import javax.validation.constraints.NotNull;
         query = "SELECT DISTINCT i.name FROM Ingredients i"),
     @NamedQuery(
         name = "Ingredient.findIngredientByLiveSearch",
-        query = "SELECT DISTINCT i.name FROM Ingredients i")
+        query = "SELECT DISTINCT i.name FROM Ingredients i WHERE i.name LIKE :nameChars")
 })
 
 @Entity
-@Table(name = "Ingredients")
+@Table(name = "Ingredients", indexes = {@Index(name = "idx_name", columnList = "name")})
 public class Ingredients {
 
   @Id

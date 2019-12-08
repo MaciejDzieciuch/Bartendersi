@@ -15,7 +15,7 @@
               <a class="nav-link" href="/home">Main Page</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/user/recipe">Drinks</a>
+              <a class="nav-link" href="/recipe">Drinks</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">By types of Glass</a>
