@@ -54,4 +54,9 @@ public class IngredientService {
   public List<String> getIngredientsList() {
     return ingredientDao.getIngredientsList();
   }
+
+  public List<String> findIngredientsForLiveSearch(String nameChars) {
+    logger.info("Ingredients with name contains {} found", nameChars);
+    return ingredientDao.findIngredientsByLiveSearch(nameChars);
+  }
 }

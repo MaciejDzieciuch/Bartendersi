@@ -17,7 +17,9 @@ $formName.on('submit', () => {
 });
 
 $('#input-name').keyup(function () {
-  if (this.value.length < 3) return;
+  if (this.value.length < 3) {
+    return;
+  }
   var substring = $(this).val();
 
   $.ajax({
@@ -47,7 +49,8 @@ $('#del-description').click(function () {
 
 $('#fav').click(function () {
 
-  if ($(this).attr("src") === "https://img.icons8.com/metro/80/000000/like.png") {
+  if ($(this).attr("src")
+      === "https://img.icons8.com/metro/80/000000/like.png") {
     $(this).attr("src", "https://img.icons8.com/metro/80/000000/hearts.png");
     $("#fav-description").attr('title', "Remove from favourites")
   } else {

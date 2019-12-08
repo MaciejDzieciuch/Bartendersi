@@ -19,6 +19,9 @@ import javax.validation.constraints.NotNull;
         query = "SELECT DISTINCT i.name FROM Ingredients i WHERE i.name IN :names"),
     @NamedQuery(
         name = "Ingredient.getIngredientList",
+        query = "SELECT DISTINCT i.name FROM Ingredients i"),
+    @NamedQuery(
+        name = "Ingredient.findIngredientByLiveSearch",
         query = "SELECT DISTINCT i.name FROM Ingredients i")
 })
 

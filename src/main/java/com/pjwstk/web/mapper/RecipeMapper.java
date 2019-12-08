@@ -30,7 +30,6 @@ public class RecipeMapper {
     recipe.setId(recipeResponse.getId());
     recipe.setName(recipeResponse.getDrinkName());
     recipe.setCustom(false);
-    recipe.setApproved(true);
     recipe.setInstruction(recipeResponse.getInstruction());
     recipe.setDrinkType(recipeResponse.getDrinkType());
     recipe.setGlassType(recipeResponse.getGlassType());
