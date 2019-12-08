@@ -99,4 +99,10 @@ public class RecipeDao {
     query.setParameter("id", userId);
     return query.getResultList();
   }
+
+  public List findRecipeByLiveSearch(String nameChars) {
+    Query query = entityManager.createNamedQuery("Recipe.findRecipeByLiveSearch");
+    query.setParameter("nameChars", "%" + nameChars + "%");
+    return query.getResultList();
+  }
 }

@@ -73,4 +73,9 @@ public class RecipeService {
     }
     return false;
   }
+
+  public List<Recipe> findRecipeForLiveSearch(String nameChars) {
+    logger.info("Recipes with name contains {} found", nameChars);
+    return recipeDao.findRecipeByLiveSearch(nameChars);
+  }
 }
