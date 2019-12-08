@@ -21,28 +21,31 @@ import javax.validation.constraints.NotNull;
 @NamedQueries({
     @NamedQuery(
         name = "Recipe.getRecipesList",
-        query = "SELECT r FROM Recipe r WHERE r.isApproved = true"),
+        query = "SELECT r FROM Recipe r"),
     @NamedQuery(
         name = "Type.findTypeByName",
         query = "SELECT DISTINCT r.drinkType FROM Recipe r WHERE r.drinkType IN :types"),
     @NamedQuery(
         name = "Recipe.findRecipeByCategoryIdAndIngredientNameAndType",
-        query = "SELECT r FROM Recipe r JOIN r.ingredients i WHERE r.category IN :categories AND r.drinkType IN :drinkTypes AND (i.name IN :ingredients) GROUP BY r HAVING COUNT (DISTINCT i.name) =: namesLength AND r.isApproved = true ORDER BY r.name ASC"),
+        query = "SELECT r FROM Recipe r JOIN r.ingredients i WHERE r.category IN :categories AND r.drinkType IN :drinkTypes AND (i.name IN :ingredients) GROUP BY r HAVING COUNT (DISTINCT i.name) =: namesLength ORDER BY r.name ASC"),
     @NamedQuery(
         name = "Recipe.findRecipeByCategoryIdAndType",
-        query = "SELECT r FROM Recipe r  WHERE r.category IN :categories AND r.drinkType IN :drinkTypes AND r.isApproved = true ORDER BY r.name ASC"),
+        query = "SELECT r FROM Recipe r  WHERE r.category IN :categories AND r.drinkType IN :drinkTypes ORDER BY r.name ASC"),
     @NamedQuery(
         name = "Recipe.findRecipeByCategoryIdAndTypeAndFavourites",
-        query = "SELECT r FROM Recipe r JOIN r.users u WHERE u.id=:id AND r.category IN :categories AND r.drinkType IN :drinkTypes AND r.isApproved = true ORDER BY r.name ASC"),
+        query = "SELECT r FROM Recipe r JOIN r.users u WHERE u.id=:id AND r.category IN :categories AND r.drinkType IN :drinkTypes ORDER BY r.name ASC"),
     @NamedQuery(
         name = "Recipe.findRecipeByCategoryAndIngredientAndTypeAndFavourites",
-        query = "SELECT r FROM Recipe r  JOIN r.ingredients i JOIN r.users u WHERE  u.id=:id AND r.category IN :categories AND r.drinkType IN :drinkTypes AND (i.name IN :ingredients) AND r.isApproved = true GROUP BY r HAVING COUNT(DISTINCT i.name)=:namesLength ORDER BY r.name ASC"),
+        query = "SELECT r FROM Recipe r  JOIN r.ingredients i JOIN r.users u WHERE  u.id=:id AND r.category IN :categories AND r.drinkType IN :drinkTypes AND (i.name IN :ingredients) GROUP BY r HAVING COUNT(DISTINCT i.name)=:namesLength ORDER BY r.name ASC"),
     @NamedQuery(
         name = "Recipe.getRecipeTypes",
         query = "SELECT DISTINCT r.drinkType FROM Recipe r"),
     @NamedQuery(
         name = "Recipe.getFavouritesListIdsForUser",
-        query = "SELECT r.id FROM Recipe r JOIN r.users u WHERE u.id=:id AND r.isApproved = true")
+        query = "SELECT r.id FROM Recipe r JOIN r.users u WHERE u.id=:id"),
+    @NamedQuery(
+        name = "Recipe.findRecipeByLiveSearch",
+        query = "SELECT r FROM Recipe r WHERE r.name LIKE :nameChars")
 })
 
 @Entity
@@ -61,10 +64,6 @@ public class Recipe {
   @Column(name = "ID_Custom")
   @NotNull
   private boolean isCustom;
-
-  @Column(name = "ID_Approved")
-  @NotNull
-  private boolean isApproved;
 
   @Column(name = "Instruction", length = 10000)
   @NotNull
@@ -122,14 +121,6 @@ public class Recipe {
 
   public void setCustom(boolean custom) {
     isCustom = custom;
-  }
-
-  public boolean isApproved() {
-    return isApproved;
-  }
-
-  public void setApproved(boolean approved) {
-    isApproved = approved;
   }
 
   public String getInstruction() {

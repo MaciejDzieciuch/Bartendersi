@@ -34,6 +34,11 @@ public class RecipeService {
     return recipeDao.getRecipeTypes();
   }
 
+  public Recipe getRecipeById(Long id) {
+    logger.info("Get recipe by id:{}", id);
+    return recipeDao.getRecipeById(id);
+  }
+
   public List<Recipe> findRecipeByCategoryIdAndIngredientAndType(List<Category> categories,
       List<Ingredients> ingredients, List<String> drinkTypes, long namesLength) {
     return recipeDao.findRecipeByCategoryIdAndIngredientAndType(categories, ingredients, drinkTypes,
@@ -60,5 +65,17 @@ public class RecipeService {
   @Transactional
   public List<Long> getFavouritesListIdsForUser(Long userId) {
     return recipeDao.getFavouritesListIds(userId);
+  }
+
+  public boolean isFavourite(Long recipeId, Long userId) {
+    if (recipeDao.getFavouritesListIds(userId).contains(recipeId)) {
+      return true;
+    }
+    return false;
+  }
+
+  public List<Recipe> findRecipeForLiveSearch(String nameChars) {
+    logger.info("Recipes with name contains {} found", nameChars);
+    return recipeDao.findRecipeByLiveSearch(nameChars);
   }
 }

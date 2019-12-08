@@ -24,9 +24,9 @@
 <body>
 
 <#if userType??>
-  <#include "${userType}View.ftlh">
+    <#include "${userType}View.ftlh">
 <#else>
-  <#include "guestView.ftlh">
+    <#include "guestView.ftlh">
 </#if>
 
 

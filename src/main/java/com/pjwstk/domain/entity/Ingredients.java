@@ -19,6 +19,9 @@ import javax.validation.constraints.NotNull;
         query = "SELECT DISTINCT i.name FROM Ingredients i WHERE i.name IN :names"),
     @NamedQuery(
         name = "Ingredient.getIngredientList",
+        query = "SELECT DISTINCT i.name FROM Ingredients i"),
+    @NamedQuery(
+        name = "Ingredient.findIngredientByLiveSearch",
         query = "SELECT DISTINCT i.name FROM Ingredients i")
 })
 
@@ -29,7 +32,7 @@ public class Ingredients {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "ID")
-  private int id;
+  private Long id;
 
   @Column(name = "Name", length = 100)
   @NotNull
@@ -42,11 +45,11 @@ public class Ingredients {
   @ManyToMany(mappedBy = "ingredients")
   private List<Recipe> recipes = new ArrayList<>();
 
-  public int getId() {
+  public Long getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public void setId(Long id) {
     this.id = id;
   }
 

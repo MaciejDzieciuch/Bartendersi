@@ -3,14 +3,12 @@ package com.pjwstk.service.recipemanager;
 import com.pjwstk.dao.CategoryDao;
 import com.pjwstk.dao.IngredientDao;
 import com.pjwstk.dao.RecipeDao;
-import com.pjwstk.dao.UserDao;
 import com.pjwstk.domain.entity.Category;
 import com.pjwstk.domain.entity.Ingredients;
 import com.pjwstk.domain.entity.Recipe;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
-import javax.inject.Inject;
 
 @Stateless
 public class FilteringService {
@@ -25,13 +23,7 @@ public class FilteringService {
   private IngredientDao ingredientDao;
 
   @EJB
-  private UserDao userDao;
-
-  @EJB
   private RecipeService recipeService;
-
-  @Inject
-  private PagingService pagingService;
 
   public List<Recipe> getAllFilters(List<Long> ids, List<String> names, List<String> types) {
     List<Category> categories = categoryDao.getCategoriesById(ids);

@@ -2,6 +2,7 @@ package com.pjwstk.web.mapper;
 
 import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.domain.entity.Ingredients;
+import com.pjwstk.dto.IngredientDto;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -25,5 +26,13 @@ public class IngredientMapper {
     });
     logger.info("Ingredients of recipe {} were mapped", recipeResponse);
     return ingredients;
+  }
+
+  public IngredientDto mapIngredientEntityToDto(Ingredients ingredients) {
+
+    IngredientDto ingredientDto = new IngredientDto();
+    ingredientDto.setName(ingredients.getName());
+    ingredientDto.setMeasure(ingredients.getMeasure());
+    return ingredientDto;
   }
 }
