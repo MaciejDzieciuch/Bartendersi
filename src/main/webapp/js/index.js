@@ -76,6 +76,7 @@ $('#input-ingredient').keyup(function () {
   if (this.value.length < 3) {
     return;
   }
+
   var substring = $(this).val();
   $.ajax({
     url: '/api/ingredients/nameChars/' + substring,

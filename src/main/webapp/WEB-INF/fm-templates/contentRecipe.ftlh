@@ -25,8 +25,9 @@
                       <#else>
                         class="col-md text-sm-center nav-link"
                       </#if>
+                  type="button"
                   id="ingredient-tab"
-                  data-target="#panel_a_name"
+                  data-target="#panel_a_ingredient"
                   data-secondary="#panel_a_ingredient" href="#panel_a_ingredient" data-toggle="tab"
                   role="tab"
                   aria-controls="ingredient" aria-selected="false">
@@ -38,13 +39,13 @@
           <div class="tab-content col-sm-12" id="navTabA">
             <div
                     <#if isActive?? && isActive == "ingredient">
-                      class="tab-pane pane"
+                      class="tab-pane"
                     <#else>
                       class="tab-pane active"
                     </#if>
                 id="panel_a_name" role="tabpanel" aria-labelledby="name-tab">
               <form id="form-name">
-                <input type="text" id="input-name" class="form-control"
+                <input type="text" id="input-name" name="input-name" class="form-control"
                        placeholder="search by name">
               </form>
             </div>
@@ -69,13 +70,13 @@
 
       <div class="row">
         <div class="col_category col border border-dark rounded">
-          <#include "ingredientList.ftlh">
-          <#include "categoryList.ftlh">
-          <#include "optionList.ftlh">
-          <#include "typeList.ftlh">
+            <#include "ingredientList.ftlh">
+            <#include "categoryList.ftlh">
+            <#include "optionList.ftlh">
+            <#include "typeList.ftlh">
         </div>
         <div class="col_drink">
-          <#include "userContent.ftlh">
+            <#include "userContent.ftlh">
         </div>
       </div>
     </div>
