@@ -9928,7 +9928,7 @@ button.bg-dark:focus {
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
   .m-lg-0 {
     margin: 0 !important;
   }
