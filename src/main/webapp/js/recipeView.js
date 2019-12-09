@@ -39,7 +39,7 @@ $('#del-description').click(function () {
   var favToBeChangedId = $('.x-delete').val();
 
   $.ajax({
-    url: '/api/admin/recipes/deleteRecipe/' + favToBeChangedId,
+    url: '/api/admin/recipes/deleteRecipe/id/' + favToBeChangedId,
     type: 'DELETE',
     success: function () {
       window.location = document.referrer;

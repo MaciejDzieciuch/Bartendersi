@@ -35,19 +35,24 @@ public class RecipeDeserializer extends JsonDeserializer<RecipeResponse> {
       i = (char) i;
 
       JsonNode ingredientNode = jsonNode.get("strIngredient" + i);
+      JsonNode measureNode = jsonNode.get("strMeasure" + i);
 
       if (ingredientNode == null) {
         break;
       }
 
       String formatIngredient = ingredientNode.asText().trim();
+      String formatMeasure = measureNode.asText().trim();
 
       for (String error : errors) {
 
-        if (!formatIngredient.equals(error) && !formatIngredient.isEmpty()) {
+        if (!formatIngredient.equals(error) && !formatIngredient.isEmpty() && !formatMeasure
+            .equals(error) && !formatMeasure.isEmpty()) {
 
           ingredients.put(jsonNode.get("strIngredient" + i).asText().trim().toLowerCase(),
               jsonNode.get("strMeasure" + i).asText().trim().toLowerCase());
+        } else {
+          ingredients.put("N/D", "N/D");
         }
       }
     }
