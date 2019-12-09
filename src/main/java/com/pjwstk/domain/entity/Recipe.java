@@ -45,7 +45,10 @@ import javax.validation.constraints.NotNull;
         query = "SELECT r.id FROM Recipe r JOIN r.users u WHERE u.id=:id"),
     @NamedQuery(
         name = "Recipe.findRecipeByLiveSearch",
-        query = "SELECT r FROM Recipe r WHERE r.name LIKE :nameChars")
+        query = "SELECT r FROM Recipe r WHERE r.name LIKE :nameChars"),
+    @NamedQuery(
+        name = "Recipe.getUnauthorizedRecipes",
+        query = "SELECT r FROM Recipe r")
 })
 
 @Entity

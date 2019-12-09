@@ -24,6 +24,11 @@ public class RecipeService {
     logger.info("Recipes {} has been saved", recipes);
   }
 
+  public Recipe editRecipe(Recipe recipe) {
+    logger.info("Recipe: {} has been updated", recipe);
+    return recipeDao.updateRecipe(recipe);
+  }
+
   public List<Recipe> getRecipesList() {
     logger.info("Get recipes list");
     return recipeDao.getRecipesList();
@@ -34,9 +39,15 @@ public class RecipeService {
     return recipeDao.getRecipeTypes();
   }
 
+  @Transactional
   public Recipe getRecipeById(Long id) {
     logger.info("Get recipe by id:{}", id);
     return recipeDao.getRecipeById(id);
+  }
+
+  public void deleteRecipeById(Long id) {
+    recipeDao.deleteRecipeById(id);
+    logger.info("Recipe with id {} has been deleted", id);
   }
 
   public List<Recipe> findRecipeByCategoryIdAndIngredientAndType(List<Category> categories,
@@ -77,5 +88,10 @@ public class RecipeService {
   public List<Recipe> findRecipeForLiveSearch(String nameChars) {
     logger.info("Recipes with name contains {} found", nameChars);
     return recipeDao.findRecipeByLiveSearch(nameChars);
+  }
+
+  @Transactional
+  public List<Recipe> getUnauthorizedRecipes() {
+    return recipeDao.getUnauthorizedRecipes();
   }
 }

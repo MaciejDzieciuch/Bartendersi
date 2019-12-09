@@ -18,7 +18,7 @@
               <a class="nav-link" href="/admin/upload-data">Data Upload</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Recipes</a>
+              <a class="nav-link" href="/admin/recipes">Recipes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Users</a>

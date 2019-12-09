@@ -36,6 +36,13 @@ public class RecipeDao {
     return entityManager.find(Recipe.class, id);
   }
 
+  public void deleteRecipeById(Long id) {
+    Recipe recipe = getRecipeById(id);
+    if (recipe != null) {
+      entityManager.remove(recipe);
+    }
+  }
+
   public List<Recipe> getRecipesList() {
     Query query = entityManager.createNamedQuery("Recipe.getRecipesList");
     return query.getResultList();
@@ -103,6 +110,11 @@ public class RecipeDao {
   public List findRecipeByLiveSearch(String nameChars) {
     Query query = entityManager.createNamedQuery("Recipe.findRecipeByLiveSearch");
     query.setParameter("nameChars", "%" + nameChars + "%");
+    return query.getResultList();
+  }
+
+  public List<Recipe> getUnauthorizedRecipes() {
+    Query query = entityManager.createNamedQuery("Recipe.getUnauthorizedRecipes");
     return query.getResultList();
   }
 }

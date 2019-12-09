@@ -7,45 +7,45 @@
             <div class="border border-dark rounded">
               <p>${recipe.name}</p>
             </div>
-            <#if recipe.imageUrl??>
-            <#else>
-              <img src="http://placekitten.com/500/500">
-            </#if>
+              <#if recipe.imageUrl??>
+              <#else>
+                <img src="http://placekitten.com/500/500">
+              </#if>
             <img src="${recipe.imageUrl}" class="card-img" alt="...">
           </div>
           <div class="col">
             <div>
 
               <div class="col">
-                <#if userType !="guest">
-                  <#if favouriteIdsChecked?seq_contains(recipe.id)>
-                          <button class="btn btn-primary btn-sm x-fav" id="${recipe.id?c}"
-                                  title="remove from favourites"
-                                  onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
-                            <img id="fav-image-${recipe.id?c}"
-                                 src="https://img.icons8.com/metro/26/000000/hearts.png">
-                          </button>
-                        <#else>
-                          <button class="btn btn-primary btn-sm x-fav" id="${recipe.id?c}"
-                                  title="add to favourites"
-                                  onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
-                            <img id="fav-image-${recipe.id?c}"
-                                 src="https://img.icons8.com/metro/26/000000/like.png">
-                          </button>
-                        </#if>
-                    </#if>
-                    <#if userType == "admin">
-                      <button class="btn btn-primary btn-sm x-fav del" data-id="${recipe.id?c}"
-                              title="delete">
-                        <img
-                            src="https://img.icons8.com/dotty/26/000000/delete-forever.png">
-                      </button>
-                    </#if>
-                </div>
+                  <#if userType !="guest">
+                      <#if favouriteIdsChecked?seq_contains(recipe.id)>
+                        <button class="btn btn-primary btn-sm x-fav" id="${recipe.id?c}"
+                                title="remove from favourites"
+                                onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
+                          <img id="fav-image-${recipe.id?c}"
+                               src="https://img.icons8.com/metro/26/000000/hearts.png">
+                        </button>
+                      <#else>
+                        <button class="btn btn-primary btn-sm x-fav" id="${recipe.id?c}"
+                                title="add to favourites"
+                                onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
+                          <img id="fav-image-${recipe.id?c}"
+                               src="https://img.icons8.com/metro/26/000000/like.png">
+                        </button>
+                      </#if>
+                  </#if>
+                  <#if userType == "admin">
+                    <button class="btn btn-primary btn-sm x-fav del" data-id="${recipe.id?c}"
+                            title="delete">
+                      <img
+                          src="https://img.icons8.com/dotty/26/000000/delete-forever.png">
+                    </button>
+                  </#if>
               </div>
             </div>
           </div>
-        </a>
+      </div>
+      </a>
       </div>
     </#items>
   </div>
