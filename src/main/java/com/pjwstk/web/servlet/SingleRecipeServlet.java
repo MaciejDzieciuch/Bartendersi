@@ -63,7 +63,7 @@ public class SingleRecipeServlet extends HttpServlet {
       dataModel.put("function", "SingleRecipe");
       dataModel.put("responseRecipeId", responseRecipeId);
       dataModel.put("email", req.getSession().getAttribute("email"));
-      dataModel.put("userType", "user");
+      dataModel.put(USER_TYPE, userType);
       dataModel.put("isFavourite", isFavourite);
       dataModel.put("recipeType", req.getSession().getAttribute("recipeType"));
     }

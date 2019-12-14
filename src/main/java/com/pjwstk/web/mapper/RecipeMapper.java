@@ -6,10 +6,14 @@ import com.pjwstk.domain.entity.Recipe;
 import com.pjwstk.domain.view.RecipeLiveSearchView;
 import com.pjwstk.dto.IngredientDto;
 import com.pjwstk.dto.RecipeDto;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,5 +71,29 @@ public class RecipeMapper {
     liveSearchView.setId(recipe.getId());
     liveSearchView.setName(recipe.getName());
     return liveSearchView;
+  }
+
+  @Transactional
+  public Recipe mapUserCustomRecipe(RecipeResponse recipeResponse, Category category)
+      throws IOException {
+
+    Recipe recipe = new Recipe();
+
+    DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+
+    recipe.setId(recipeResponse.getId());
+    recipe.setName(recipeResponse.getDrinkName());
+    recipe.setDrinkType(recipeResponse.getDrinkType());
+    recipe.setGlassType(recipeResponse.getGlassType());
+    recipe.setInstruction(recipeResponse.getInstruction());
+    recipe.getIngredients().addAll(ingredientMapper.mapIngredients(recipeResponse));
+    recipe.setModificationDate(LocalDateTime.now().format(dateFormat));
+    recipe.setImageUrl(recipeResponse.getImageUrl());
+    recipe.setCategory(category);
+    recipe.setCustom(true);
+
+    logger.info("Recipe {} was mapped", recipe.getName());
+
+    return recipe;
   }
 }

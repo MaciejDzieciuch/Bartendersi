@@ -117,4 +117,9 @@ public class RecipeDao {
     Query query = entityManager.createNamedQuery("Recipe.getUnauthorizedRecipes");
     return query.getResultList();
   }
+
+  public Long getMaxId() {
+    Query query = entityManager.createNamedQuery("Recipe.getTheBiggestId");
+    return (Long) query.getSingleResult();
+  }
 }

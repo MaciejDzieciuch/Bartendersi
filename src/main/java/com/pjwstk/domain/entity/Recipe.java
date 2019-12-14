@@ -48,39 +48,42 @@ import javax.validation.constraints.NotNull;
         query = "SELECT r FROM Recipe r WHERE r.name LIKE :nameChars"),
     @NamedQuery(
         name = "Recipe.getUnauthorizedRecipes",
-        query = "SELECT r FROM Recipe r")
+        query = "SELECT r FROM Recipe r"),
+    @NamedQuery(
+        name = "Recipe.getTheBiggestId",
+        query = "SELECT MAX(r.id) FROM Recipe r")
 })
 
 @Entity
-@Table(name = "Recipe")
+@Table(name = "recipe")
 public class Recipe {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "ID")
+  @Column(name = "id")
   private Long id;
 
   @Column(name = "name", unique = true, length = 100)
   @NotNull
   private String name;
 
-  @Column(name = "ID_Custom")
+  @Column(name = "id_custom")
   @NotNull
   private boolean isCustom;
 
-  @Column(name = "Instruction", length = 10000)
+  @Column(name = "instruction", length = 10000)
   @NotNull
   private String instruction;
 
-  @Column(name = "Drink_Type")
+  @Column(name = "drink_type")
   @NotNull
   private String drinkType;
 
-  @Column(name = "Glass_Type")
+  @Column(name = "glass_type")
   @NotNull
   private String glassType;
 
-  @Column(name = "Modification_Date")
+  @Column(name = "modification_date")
   @NotNull
   private String modificationDate;
 
@@ -95,8 +98,8 @@ public class Recipe {
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinTable(
       name = "recipe_to_ingredient",
-      joinColumns = {@JoinColumn(name = "recipe_id", referencedColumnName = "ID")},
-      inverseJoinColumns = {@JoinColumn(name = "ingredient_id", referencedColumnName = "ID")})
+      joinColumns = {@JoinColumn(name = "recipe_id", referencedColumnName = "id")},
+      inverseJoinColumns = {@JoinColumn(name = "ingredient_id", referencedColumnName = "id")})
   private List<Ingredients> ingredients = new ArrayList<>();
 
   @ManyToMany(mappedBy = "recipes")

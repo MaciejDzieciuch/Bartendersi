@@ -47,8 +47,8 @@ public class IngredientDao {
   }
 
   public Ingredients findIngredient(String name) {
-    Query query = entityManager.createNamedQuery("Ingredient.findIngredientByName");
-    query.setParameter("name", name);
+    Query query = entityManager.createNamedQuery("Ingredients.findIngredientByName");
+    query.setParameter("names", name);
     return (Ingredients) query.getSingleResult();
   }
 
