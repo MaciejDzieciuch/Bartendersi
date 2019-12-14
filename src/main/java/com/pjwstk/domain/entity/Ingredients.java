@@ -27,19 +27,19 @@ import javax.validation.constraints.NotNull;
 })
 
 @Entity
-@Table(name = "Ingredients", indexes = {@Index(name = "idx_name", columnList = "name")})
+@Table(name = "ingredients", indexes = {@Index(name = "idx_name", columnList = "name")})
 public class Ingredients {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "ID")
+  @Column(name = "id")
   private Long id;
 
-  @Column(name = "Name", length = 100)
+  @Column(name = "name", length = 100)
   @NotNull
   private String name;
 
-  @Column(name = "Measure")
+  @Column(name = "measure")
   @NotNull
   private String measure;
 

@@ -18,7 +18,7 @@ import org.slf4j.LoggerFactory;
     filterName = "AdminAuthorizationFilter",
     urlPatterns = {"/admin/*"},
     initParams = {
-        @WebInitParam(name = "type", value = "admin")
+        @WebInitParam(name = "userType", value = "admin")
     }
 )
 public class AdminAuthorizationFilter implements Filter {
@@ -29,7 +29,7 @@ public class AdminAuthorizationFilter implements Filter {
 
   @Override
   public void init(FilterConfig filterConfig) throws ServletException {
-    authorizedType = filterConfig.getInitParameter("type");
+    authorizedType = filterConfig.getInitParameter("userType");
   }
 
   @Override
@@ -39,12 +39,12 @@ public class AdminAuthorizationFilter implements Filter {
     HttpServletRequest httpServletRequest = (HttpServletRequest) servletRequest;
     HttpServletResponse httpServletResponse = (HttpServletResponse) servletResponse;
 
-    String checkedType = String.valueOf(httpServletRequest.getSession().getAttribute("userType"));
-    if (checkedType == null || checkedType.isEmpty()) {
-      checkedType = "guest";
+    String userType = (String) httpServletRequest.getSession().getAttribute("userType");
+    if (userType == null || userType.isEmpty()) {
+      userType = "guest";
     }
 
-    if (!checkedType.equals(authorizedType)) {
+    if (!userType.equals(authorizedType)) {
       httpServletResponse.sendRedirect("/home");
       logger.warn("An unauthorized attempt to access the admin panel has occurred!");
     }

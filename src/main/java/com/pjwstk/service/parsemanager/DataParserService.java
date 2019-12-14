@@ -1,5 +1,6 @@
 package com.pjwstk.service.parsemanager;
 
+import com.pjwstk.dao.CategoryDao;
 import com.pjwstk.domain.api.RecipeResponse;
 import com.pjwstk.domain.entity.Category;
 import com.pjwstk.web.mapper.CategoryMapper;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
+import javax.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -23,15 +25,16 @@ public class DataParserService {
   private CategoryMapper categoryMapper;
 
   @EJB
-  private CategoryService categoryService;
+  private CategoryDao categoryDao;
 
+  @Transactional
   public Object loadDataToDatabase(List<RecipeResponse> recipeResponseList) {
     for (RecipeResponse recipeResponse : recipeResponseList) {
       Category category = Optional
-          .ofNullable(categoryService.findCategoryByName(recipeResponse.getCategory()))
+          .ofNullable(categoryDao.findCategoryByName(recipeResponse.getCategory()))
           .orElseGet(() -> categoryMapper.mapCategory(recipeResponse));
       category.getRecipes().add(recipeMapper.mapApiToEntity(recipeResponse, category));
-      categoryService.updateCategory(category);
+      categoryDao.updateCategory(category);
     }
     logger.info("Recipes {} were saved successfully", recipeResponseList.toString());
     return null;

@@ -31,15 +31,15 @@ import javax.validation.constraints.NotNull;
 })
 
 @Entity
-@Table(name = "Category", indexes = {@Index(name = "category_name", columnList = "name")})
+@Table(name = "category", indexes = {@Index(name = "category_name", columnList = "name")})
 public class Category {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "ID")
+  @Column(name = "id")
   private Long id;
 
-  @Column(name = "Name", unique = true, length = 50)
+  @Column(name = "name", unique = true, length = 50)
   @NotNull
   private String name;
 

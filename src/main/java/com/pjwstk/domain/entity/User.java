@@ -27,35 +27,35 @@ import javax.validation.constraints.NotNull;
 })
 
 @Entity
-@Table(name = "User", indexes = {@Index(name = "user_email", columnList = "email")})
+@Table(name = "user", indexes = {@Index(name = "user_email", columnList = "email")})
 public class User {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  @Column(name = "ID")
+  @Column(name = "id")
   private Long id;
 
-  @Column(name = "Name")
+  @Column(name = "name")
   @NotNull
   private String name;
 
-  @Column(name = "Email")
+  @Column(name = "email")
   @NotNull
   private String email;
 
-  @Column(name = "User_Type")
+  @Column(name = "user_type")
   @NotNull
   private String user_type;
 
-  @Column(name = "Password")
+  @Column(name = "password")
   @NotNull
   private String password;
 
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinTable(
       name = "user_favourite_recipe",
-      joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "ID")},
-      inverseJoinColumns = {@JoinColumn(name = "recipe_id", referencedColumnName = "ID")})
+      joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+      inverseJoinColumns = {@JoinColumn(name = "recipe_id", referencedColumnName = "id")})
   private List<Recipe> recipes = new ArrayList<>();
 
   public Long getId() {
