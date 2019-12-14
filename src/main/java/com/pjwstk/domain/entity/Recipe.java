@@ -48,7 +48,10 @@ import javax.validation.constraints.NotNull;
         query = "SELECT r FROM Recipe r WHERE r.name LIKE :nameChars"),
     @NamedQuery(
         name = "Recipe.getUnauthorizedRecipes",
-        query = "SELECT r FROM Recipe r")
+        query = "SELECT r FROM Recipe r"),
+    @NamedQuery(
+        name = "Recipe.getTheBiggestId",
+        query = "SELECT MAX(r.id) FROM Recipe r")
 })
 
 @Entity

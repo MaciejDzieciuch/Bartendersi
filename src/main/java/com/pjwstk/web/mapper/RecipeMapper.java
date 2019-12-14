@@ -74,7 +74,8 @@ public class RecipeMapper {
   }
 
   @Transactional
-  public Recipe mapUserCustomRecipe (RecipeResponse recipeResponse, Category category) throws IOException {
+  public Recipe mapUserCustomRecipe(RecipeResponse recipeResponse, Category category)
+      throws IOException {
 
     Recipe recipe = new Recipe();
 

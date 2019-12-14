@@ -94,4 +94,8 @@ public class RecipeService {
   public List<Recipe> getUnauthorizedRecipes() {
     return recipeDao.getUnauthorizedRecipes();
   }
+
+  public Long getMaxId() {
+    return recipeDao.getMaxId();
+  }
 }

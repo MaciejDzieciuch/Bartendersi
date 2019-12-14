@@ -1,5 +1,6 @@
 package com.pjwstk.service.uploadmanager;
 
+import com.pjwstk.exception.ImageNotFound;
 import com.pjwstk.service.propertiesmanager.PropertiesLoaderService;
 import java.io.File;
 import java.io.IOException;
@@ -20,9 +21,13 @@ public class FileUploadService {
 
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
-  public File uploadFile(Part filePart) throws IOException {
+  public File uploadFile(Part filePart) throws IOException, ImageNotFound {
 
     String fileName = Paths.get(filePart.getSubmittedFileName()).getFileName().toString();
+
+    if (fileName == null || fileName.isEmpty()) {
+      throw new ImageNotFound("No image has been uploaded");
+    }
     File file = new File(propertiesLoaderService.loadFilePathProperties() + fileName);
     Files.deleteIfExists(file.toPath());
     InputStream fileContent = filePart.getInputStream();
