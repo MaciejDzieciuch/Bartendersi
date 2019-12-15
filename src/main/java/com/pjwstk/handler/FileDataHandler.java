@@ -10,7 +10,6 @@ import com.pjwstk.service.uploadmanager.FileUploadService;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
-import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.servlet.http.Part;

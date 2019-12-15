@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-3">
-            <a href="/manage-recipe">Add recipe</a>
+          <a href="/manage-recipe">Add recipe</a>
         </div>
         <div class="col-sm-6" id="search-container">
           <ul class="nav nav-tabs nav-justified" style="margin: 0px" id="navTab" role="tablist">

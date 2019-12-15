@@ -3,10 +3,13 @@ package com.pjwstk.web.servlet;
 import com.pjwstk.domain.entity.Recipe;
 import com.pjwstk.freemarker.TemplateProvider;
 import com.pjwstk.service.recipemanager.RecipeService;
+import com.pjwstk.service.statisticsmanager.StatisticsService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import javax.ejb.EJB;
 import javax.inject.Inject;
@@ -32,6 +35,9 @@ public class SingleRecipeServlet extends HttpServlet {
   @EJB
   private RecipeService recipeService;
 
+  @EJB
+  private StatisticsService statisticsService;
+
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
@@ -47,6 +53,9 @@ public class SingleRecipeServlet extends HttpServlet {
     req.getSession().setAttribute("recipeType", responseRecipeId.getDrinkType());
 
     boolean isFavourite = recipeService.isFavourite(parseToLongRecipeId, userId);
+
+    List<Long> longList = new ArrayList<>();
+    statisticsService.save(parseToLongRecipeId, longList);
 
     String userType;
 

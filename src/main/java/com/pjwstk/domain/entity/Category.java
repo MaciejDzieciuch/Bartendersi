@@ -12,6 +12,7 @@ import javax.persistence.Index;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -43,6 +44,9 @@ public class Category {
   @NotNull
   private String name;
 
+  @OneToOne(mappedBy = "category")
+  private RecipeStatistics recipeStatistics;
+
   @OneToMany(mappedBy = "category", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   private List<Recipe> recipes = new ArrayList<>();
 
@@ -60,6 +64,14 @@ public class Category {
 
   public void setName(String name) {
     this.name = name;
+  }
+
+  public RecipeStatistics getRecipeStatistics() {
+    return recipeStatistics;
+  }
+
+  public void setRecipeStatistics(RecipeStatistics recipeStatistics) {
+    this.recipeStatistics = recipeStatistics;
   }
 
   public List<Recipe> getRecipes() {
