@@ -24,7 +24,7 @@
               <a class="nav-link" href="#">Users</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Statistics</a>
+              <a class="nav-link" href="/admin/statistics">Statistics</a>
             </li>
           </ul>
           <div class="login">

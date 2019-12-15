@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
         name = "Recipe.findTop10Recipes",
-        query = "SELECT rs.recipeName, COUNT (rs.recipeName) AS QUANTITY FROM RecipeStatistics rs WHERE rs.type = 1 GROUP BY rs.recipeName ORDER BY quantity DESC")
+        query = "SELECT rs.recipeName, COUNT (rs.recipeName) AS quantity FROM RecipeStatistics rs WHERE rs.type = 1 GROUP BY rs.recipeName ORDER BY quantity DESC")
 })
 
 @Entity

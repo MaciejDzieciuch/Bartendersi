@@ -7,6 +7,7 @@ import com.pjwstk.service.parsemanager.CategoryService;
 import com.pjwstk.service.recipemanager.IngredientService;
 import com.pjwstk.service.recipemanager.PagingService;
 import com.pjwstk.service.recipemanager.RecipeService;
+import com.pjwstk.service.statisticsmanager.StatisticsService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.IOException;
@@ -45,6 +46,9 @@ public class RecipeServlet extends HttpServlet {
 
   @EJB
   private IngredientService ingredientService;
+
+  @EJB
+  private StatisticsService statisticsService;
 
   @Inject
   private PagingService pagingService;
@@ -86,7 +90,7 @@ public class RecipeServlet extends HttpServlet {
         .collect(Collectors.toList());
 
     Long recipe = 0L;
-
+    statisticsService.save(recipe, parsedToLongCategoriesList);
     List<Recipe> checkedCategoriesAndIngredientsAndTypes;
 
     checkedCategoriesAndIngredientsAndTypes = pagingService
