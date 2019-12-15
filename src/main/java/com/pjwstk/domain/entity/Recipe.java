@@ -27,7 +27,7 @@ import javax.validation.constraints.NotNull;
         query = "SELECT DISTINCT r.drinkType FROM Recipe r WHERE r.drinkType IN :types"),
     @NamedQuery(
         name = "Recipe.findRecipeByCategoryIdAndIngredientNameAndType",
-        query = "SELECT r FROM Recipe r JOIN r.ingredients i WHERE r.category IN :categories AND r.drinkType IN :drinkTypes AND (i.name IN :ingredients) GROUP BY r HAVING COUNT (DISTINCT i.name) =: namesLength ORDER BY r.name ASC"),
+        query = "SELECT r FROM Recipe r JOIN r.ingredients i WHERE r.category IN :categories AND r.drinkType IN :drinkTypes AND (i.name IN :ingredients) GROUP BY r HAVING COUNT (DISTINCT i.name) = :namesLength ORDER BY r.name ASC"),
     @NamedQuery(
         name = "Recipe.findRecipeByCategoryIdAndType",
         query = "SELECT r FROM Recipe r  WHERE r.category IN :categories AND r.drinkType IN :drinkTypes ORDER BY r.name ASC"),
@@ -51,7 +51,10 @@ import javax.validation.constraints.NotNull;
         query = "SELECT r FROM Recipe r"),
     @NamedQuery(
         name = "Recipe.getTheBiggestId",
-        query = "SELECT MAX(r.id) FROM Recipe r")
+        query = "SELECT MAX(r.id) FROM Recipe r"),
+    @NamedQuery(
+        name = "Recipe.getRecipePerCategoryRank",
+        query = "SELECT c.name, COUNT (r.name) AS quantity FROM Recipe r JOIN r.category c GROUP BY c.id ORDER BY quantity DESC")
 })
 
 @Entity
