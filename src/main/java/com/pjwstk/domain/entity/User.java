@@ -45,7 +45,7 @@ public class User {
 
   @Column(name = "user_type")
   @NotNull
-  private String user_type;
+  private String userType;
 
   @Column(name = "password")
   @NotNull
@@ -82,12 +82,12 @@ public class User {
     this.email = email;
   }
 
-  public String getUser_type() {
-    return user_type;
+  public String getUserType() {
+    return userType;
   }
 
-  public void setUser_type(String user_type) {
-    this.user_type = user_type;
+  public void setUserType(String userType) {
+    this.userType = userType;
   }
 
   public String getPassword() {
