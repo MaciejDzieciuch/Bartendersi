@@ -1,53 +1,61 @@
 <#list recipeListPerPage>
   <div class="row">
-    <#items as recipe>
-      <div class="col border border-dark rounded">
-        <a href="/recipeView?recipeId=${recipe.id?c}">
-          <div class="col">
-            <div class="border border-dark rounded">
-              <p>${recipe.name}</p>
-            </div>
-              <#if recipe.imageUrl??>
-              <#else>
-                <img src="http://placekitten.com/500/500">
-              </#if>
-            <img src="${recipe.imageUrl}" class="card-img" alt="...">
-          </div>
-          <div class="col">
-            <div>
+      <#items as recipe>
+        <div class=" col-md-3">
+          <div class="card mb-3 shadow-sm">
+            <a href="/recipeView?recipeId=${recipe.id?c}">
 
-              <div class="col">
-                  <#if userType !="guest">
-                      <#if favouriteIdsChecked?seq_contains(recipe.id)>
-                        <button class="btn btn-primary btn-sm x-fav" id="${recipe.id?c}"
-                                title="remove from favourites"
-                                onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
+                <#if recipe.imageUrl??>
+                <#else>
+                  <img src="http://placekitten.com/500/500">
+                </#if>
+              <img src="${recipe.imageUrl}" class="card-img" alt="...">
+
+
+              <div class="card-body">
+                <p class="font-weight-bold text-uppercase" style="color: #1d2124">${recipe.name}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                      <#if userType !="guest">
+                          <#if favouriteIdsChecked?seq_contains(recipe.id)>
+                            <button class="btn btn-sm btn-outline-secondary" id="${recipe.id?c}"
+                                    title="remove from favourites"
+                                    onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
+                              <!--
                           <img id="fav-image-${recipe.id?c}"
                                src="https://img.icons8.com/metro/26/000000/hearts.png">
-                        </button>
-                      <#else>
-                        <button class="btn btn-primary btn-sm x-fav" id="${recipe.id?c}"
-                                title="add to favourites"
-                                onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
+-->
+                            </button>
+                          <#else>
+                            <button class="btn btn-sm btn-outline-secondary" id="${recipe.id?c}"
+                                    title="add to favourites"
+                                    onclick="clickedFav('#fav-image-${recipe.id?c}', '#${recipe.id?c}')">
+                              <!--
                           <img id="fav-image-${recipe.id?c}"
                                src="https://img.icons8.com/metro/26/000000/like.png">
+-->
+                            </button>
+                          </#if>
+                      </#if>
+                      <#if userType == "admin">
+                        <button class="btn btn-sm btn-outline-secondary" data-id="${recipe.id?c}"
+                                title="delete">
+                          <!--
+                                                <img
+                                                    src="https://img.icons8.com/dotty/26/000000/delete-forever.png">
+                          -->
                         </button>
                       </#if>
-                  </#if>
-                  <#if userType == "admin">
-                    <button class="btn btn-primary btn-sm x-fav del" data-id="${recipe.id?c}"
-                            title="delete">
-                      <img
-                          src="https://img.icons8.com/dotty/26/000000/delete-forever.png">
-                    </button>
-                  </#if>
+                  </div>
+                </div>
               </div>
-            </div>
+
+            </a>
           </div>
-      </div>
-      </a>
-      </div>
-    </#items>
+        </div>
+      </#items>
   </div>
 </#list>
 

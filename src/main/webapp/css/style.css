@@ -140,6 +140,9 @@
   margin-left: 0px !important;
 }
 
-body {
-  max-width: 1800px;
+/*body {*/
+/*  max-width: 1800px;*/
+/*}*/
+.drink_row{
+  width: 20%;
 }
