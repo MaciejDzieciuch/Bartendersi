@@ -1,5 +1,5 @@
-<header class="card-header">
-  <h4 class="title">Type</h4>
+<header>
+  <h4 class="title" style="color: #AAC7CF">Type</h4>
 </header>
 <div class="btn-group-vertical">
     <#list typeList>

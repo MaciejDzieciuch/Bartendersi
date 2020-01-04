@@ -2,17 +2,15 @@
   <div class="container main_con drink_content">
     <div class="container">
       <div class="row">
-          <div class="col-sm-3">
-            <a href="/manage-recipe">Add recipe</a>
-          </div>
-        <div class="col-sm-6" id="search-container">
+
+        <div class="col-sm-6 col_share" id="search-container">
           <ul class="nav nav-tabs nav-justified" style="margin: 0px" id="navTab" role="tablist">
             <li class="nav-item">
               <a
                       <#if isActive?? && isActive == "ingredient">
-                        class="col-md text-sm-center nav-link"
+                        class="col-md text-sm-center nav-link text-secondary"
                       <#else>
-                        class="col-md text-sm-center nav-link active"
+                        class="col-md text-sm-center nav-link active text-secondary"
                       </#if>
                   id="name-tab"
                   data-target="#panel_a_name"
@@ -24,9 +22,9 @@
             <li class="nav-item">
               <a
                       <#if isActive?? && isActive == "ingredient">
-                        class="col-md text-sm-center nav-link active"
+                        class="col-md text-sm-center nav-link active text-secondary"
                       <#else>
-                        class="col-md text-sm-center nav-link"
+                        class="col-md text-sm-center nav-link text-secondary"
                       </#if>
                   type="button"
                   id="ingredient-tab"
@@ -49,7 +47,7 @@
                 id="panel_a_name" role="tabpanel" aria-labelledby="name-tab">
               <form id="form-name">
                 <input type="text" id="input-name" name="input-name" class="form-control"
-                       placeholder="search by name">
+                       placeholder="Search by Name">
               </form>
             </div>
 
@@ -62,7 +60,7 @@
                 id="panel_a_ingredient" role="tabpanel" aria-labelledby="ingredient-tab">
               <form id="form-ingredient">
                 <input type="text" id="input-ingredient" class="form-control"
-                       placeholder="search by ingredient">
+                       placeholder="Search by Ingredient">
               </form>
             </div>
           </div>
@@ -71,17 +69,33 @@
     </div>
     <div class="container" id="list-ingredient">
 
-      <div class="row">
-        <div class="col_category col border border-dark rounded">
-            <#include "ingredientList.ftlh">
-            <#include "categoryList.ftlh">
-            <#include "optionList.ftlh">
-            <#include "typeList.ftlh">
+
+      <div class="pos-f-t">
+        <div class="collapse" id="navbarToggleExternalContent">
+          <div style="border-radius: 0.25rem; border-color: dark;" class="bg-dark p-4">
+
+              <#include "ingredientList.ftlh">
+              <#include "categoryList.ftlh">
+              <#include "optionList.ftlh">
+              <#include "typeList.ftlh">
+            <div class="col-sm-3">
+              <a style="color: #CCCECF" class="nav-link" href="/manage-recipe">Add recipe</a>
+            </div>
+          </div>
         </div>
-        <div class="col_drink">
-            <#include "userContent.ftlh">
-        </div>
+        <nav style="border-radius: 0.25rem; border-color: dark;" class="navbar navbar-dark bg-dark">
+          <button class="navbar-toggler" type="button" data-toggle="collapse"
+                  data-target="#navbarToggleExternalContent"
+                  aria-controls="navbarToggleExternalContent" aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </nav>
       </div>
+      <div class="col_drink">
+          <#include "userContent.ftlh">
+      </div>
+
     </div>
   </div>
 

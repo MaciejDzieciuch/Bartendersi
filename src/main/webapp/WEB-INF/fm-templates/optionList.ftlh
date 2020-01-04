@@ -1,5 +1,5 @@
-<header class="card-header">
-  <h4 class="title">List Options</h4>
+<header>
+  <h4 style="color: #AAC7CF" class="title">List Options</h4>
 </header>
 <div class="btn-group-vertical">
   <label class="btn btn-outline-light">

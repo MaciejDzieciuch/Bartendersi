@@ -58,6 +58,8 @@
 
 .main_con {
   margin-top: 25px;
+  margin 0 auto !important;
+  position: relative;
 }
 
 .ingre {
@@ -66,6 +68,7 @@
 
 .footer {
   margin-top: 25px;
+
 }
 
 .log_out {
@@ -86,7 +89,7 @@
 }
 
 .form-check-label {
-  color: black !important;
+  color: #AAC7CF !important;
   margin-bottom: 0;
 }
 
@@ -100,7 +103,7 @@
 }
 
 .drink_content {
-  margin-left: 0px !important;
+
 }
 
 .drink_content_2 {
@@ -112,8 +115,9 @@
 }
 
 .col_drink {
-  width: 75%;
+  width: 85%;
   margin: auto;
+  margin-top: 25px;
 }
 
 .main_drink {
@@ -145,4 +149,20 @@
 /*}*/
 .drink_row{
   width: 20%;
+}
+.col_share{
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+.paginator{
+  margin: 0 auto;
+  position: relative;
+}
+.pagi_right{
+  float: right;
+}
+.margin_top{
+  margin-top: 25px;
 }
