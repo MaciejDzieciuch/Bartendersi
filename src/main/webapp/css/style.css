@@ -57,9 +57,10 @@
 }
 
 .main_con {
-  margin-top: 25px;
-  margin 0 auto !important;
+
+  margin: 0 auto;
   position: relative;
+  min-height: 100vh;
 }
 
 .ingre {
@@ -68,6 +69,9 @@
 
 .footer {
   margin-top: 25px;
+  /*position: fixed;*/
+  /*width: 100%;*/
+  /*bottom: 0;*/
 
 }
 
@@ -165,4 +169,7 @@
 }
 .margin_top{
   margin-top: 25px;
+}
+.margin_bottom{
+  margin-bottom: 25px;
 }
