@@ -37,6 +37,7 @@ public class GoogleLoginCallbackServlet extends AbstractAuthorizationCodeCallbac
 
     GoogleCredential googleCredential = new GoogleCredential()
         .setAccessToken(credential.getAccessToken());
+
     Oauth2 oauth2 = new Oauth2.Builder(
         new NetHttpTransport(),
         JacksonFactory.getDefaultInstance(),
@@ -44,7 +45,6 @@ public class GoogleLoginCallbackServlet extends AbstractAuthorizationCodeCallbac
 
     Userinfoplus userinfoplus = oauth2.userinfo().get().execute();
     String name = userinfoplus.getName();
-    String surname = userinfoplus.getGivenName();
     String email = userinfoplus.getEmail();
 
     if (userService.findUserByEmail(email) == null) {

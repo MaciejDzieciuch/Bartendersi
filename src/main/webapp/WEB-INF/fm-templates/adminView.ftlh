@@ -28,7 +28,7 @@
             </li>
           </ul>
           <div class="login">
-            <button class="btn btn-secondary my-2 my-sm-0 log_out" type="submit">Log Out
+            <button class="btn btn-secondary my-2 my-sm-0 log_out" onclick="window.location.href = '/logout';" type="submit">Log Out
             </button>
           </div>
         </div>

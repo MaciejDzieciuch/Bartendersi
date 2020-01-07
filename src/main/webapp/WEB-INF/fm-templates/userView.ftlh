@@ -19,7 +19,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="/user/barware">Braware</a>
+              <a class="nav-link" href="/user/barware">Barware</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Random Drink</a>
@@ -30,10 +30,8 @@
 
           </ul>
           <div class="login">
-            <button class="btn btn-secondary my-2 my-sm-0 log_in" type="submit">Log Out</button>
-
+            <button class="btn btn-secondary my-2 my-sm-0 log_in" onclick="window.location.href = '/logout';" type="submit">Log Out</button>
           </div>
-
         </div>
       </nav>
     </div>
