@@ -2,7 +2,8 @@
   <header>
     <div class="menu">
       <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="/home"><img src="/img/baner.png" alt="logo" class="baner2"></a>
+        <a class="navbar-brand" href="/home"><img src="/img/baner.png" alt="logo"
+                                                  class="baner2"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -30,7 +31,9 @@
 
           </ul>
           <div class="login">
-            <button class="btn btn-secondary my-2 my-sm-0 log_in" onclick="window.location.href = '/logout';" type="submit">Log Out</button>
+            <button class="btn btn-secondary my-2 my-sm-0 log_in"
+                    onclick="window.location.href = '/logout';" type="submit">Log Out
+            </button>
           </div>
         </div>
       </nav>
