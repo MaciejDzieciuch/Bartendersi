@@ -24,7 +24,7 @@ $(document).ready(function () {
 
     var newInput = $(newIn);
     var removeBtn = '<button id="remove' + (next - 1)
-        + '" class="btn btn-primary btn-sm remove-me" >-</button></div>';
+        + '" class="btn btn-sm btn-secondary remove-me" >-</button></div>';
     var removeButton = $(removeBtn);
     $(addto).after(newInput);
     $(addRemove).after(removeButton);

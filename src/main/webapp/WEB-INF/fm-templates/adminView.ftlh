@@ -21,7 +21,7 @@
               <a class="nav-link" href="/admin/recipes">Recipes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Users</a>
+              <a class="nav-link" href="/admin/users">Users</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/admin/statistics">Statistics</a>
