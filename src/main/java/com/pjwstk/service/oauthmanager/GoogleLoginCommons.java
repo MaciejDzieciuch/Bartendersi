@@ -29,7 +29,7 @@ public class GoogleLoginCommons {
         new NetHttpTransport(),
         JacksonFactory.getDefaultInstance(), loadOAuthProperties("client.id"),
         loadOAuthProperties("secret"), SCOPES)
-        .setAccessType("oneline")
+        .setAccessType("online")
         .build();
   }
 

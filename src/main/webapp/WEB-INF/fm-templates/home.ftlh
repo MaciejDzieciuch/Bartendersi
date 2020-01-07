@@ -47,7 +47,6 @@
 <#include "content${function}.ftlh">
 
 
-
 </body>
 <#include "footer.ftlh">
 </html>
