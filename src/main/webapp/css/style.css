@@ -151,25 +151,30 @@
 /*body {*/
 /*  max-width: 1800px;*/
 /*}*/
-.drink_row{
+.drink_row {
   width: 20%;
 }
-.col_share{
+
+.col_share {
   margin: 0 auto;
   position: relative;
   margin-bottom: 25px;
   margin-top: 25px;
 }
-.paginator{
+
+.paginator {
   margin: 0 auto;
   position: relative;
 }
-.pagi_right{
+
+.pagi_right {
   float: right;
 }
-.margin_top{
+
+.margin_top {
   margin-top: 25px;
 }
-.margin_bottom{
+
+.margin_bottom {
   margin-bottom: 25px;
 }

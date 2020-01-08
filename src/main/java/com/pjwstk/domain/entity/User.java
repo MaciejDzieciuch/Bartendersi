@@ -47,10 +47,6 @@ public class User {
   @NotNull
   private String userType;
 
-  @Column(name = "password")
-  @NotNull
-  private String password;
-
   @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
   @JoinTable(
       name = "user_favourite_recipe",
@@ -88,14 +84,6 @@ public class User {
 
   public void setUserType(String userType) {
     this.userType = userType;
-  }
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
   }
 
   public List<Recipe> getRecipes() {
