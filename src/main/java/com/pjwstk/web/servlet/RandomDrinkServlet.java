@@ -7,6 +7,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,7 +48,11 @@ public class RandomDrinkServlet extends HttpServlet {
     List<Recipe> recipesList = recipeService.getRecipesList();
     Random random = new Random();
 
-    int randomRecipe = random.nextInt(recipesList.size());
+    List<Long> listLongRecipes = new ArrayList<>();
+
+    recipesList.forEach(recipe -> listLongRecipes.add(recipe.getId()));
+
+    int randomRecipe = Math.toIntExact(listLongRecipes.get(random.nextInt(listLongRecipes.size())));
 
     Recipe recipeById = recipeService.getRecipeById((long) randomRecipe);
 
