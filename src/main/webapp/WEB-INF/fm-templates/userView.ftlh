@@ -23,7 +23,7 @@
               <a class="nav-link" href="/user/barware">Barware</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Random Drink</a>
+              <a class="nav-link" href="/random-drink">Random Drink</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/most-popular">Most Popular</a>

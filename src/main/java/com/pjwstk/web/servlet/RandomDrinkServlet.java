@@ -3,14 +3,15 @@ package com.pjwstk.web.servlet;
 import com.pjwstk.domain.entity.Recipe;
 import com.pjwstk.freemarker.TemplateProvider;
 import com.pjwstk.service.recipemanager.RecipeService;
-import com.pjwstk.service.statisticsmanager.StatisticsService;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 import javax.ejb.EJB;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
@@ -23,10 +24,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 @Transactional
-@WebServlet("/recipeView")
-public class SingleRecipeServlet extends HttpServlet {
+@WebServlet("/random-drink")
+public class RandomDrinkServlet extends HttpServlet {
 
-  private static final String USER_TYPE = "userType";
   private Logger logger = LoggerFactory.getLogger(getClass().getName());
 
   @Inject
@@ -34,9 +34,6 @@ public class SingleRecipeServlet extends HttpServlet {
 
   @EJB
   private RecipeService recipeService;
-
-  @EJB
-  private StatisticsService statisticsService;
 
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -48,40 +45,31 @@ public class SingleRecipeServlet extends HttpServlet {
 
     List<Long> favouriteRecipeIdsFromUser = recipeService.getFavouritesListIdsForUser(userId);
 
-    String recipeId = req.getParameter("recipeId");
-    Long parseToLongRecipeId = Long.parseLong(recipeId);
+    List<Recipe> recipesList = recipeService.getRecipesList();
+    Random random = new Random();
+
+    int randomRecipe = random.nextInt(recipesList.size());
+
+    Recipe recipeById = recipeService.getRecipeById((long) randomRecipe);
+
+    Long parseToLongRecipeId = recipeById.getId();
     Recipe responseRecipeId = recipeService.getRecipeById(parseToLongRecipeId);
 
     req.getSession().setAttribute("recipeType", responseRecipeId.getDrinkType());
 
-    boolean isFavourite = recipeService.isFavourite(parseToLongRecipeId, userId);
-
-    List<Long> longList = new ArrayList<>();
-    statisticsService.save(parseToLongRecipeId, longList);
-
-    String userType;
-
-    if (req.getSession().getAttribute(USER_TYPE) == null) {
-      userType = "guest";
-    } else {
-      userType = String.valueOf(req.getSession().getAttribute(USER_TYPE));
-    }
-
     Template template = templateProvider.getTemplate(getServletContext(), "home.ftlh");
 
     Map<String, Object> dataModel = new HashMap<>();
-    if (responseRecipeId != null) {
-      dataModel.put("function", "SingleRecipe");
-      dataModel.put("responseRecipeId", responseRecipeId);
-      dataModel.put("favouriteIdsChecked", favouriteRecipeIdsFromUser);
-      dataModel.put("email", req.getSession().getAttribute("email"));
-      dataModel.put(USER_TYPE, userType);
-      dataModel.put("isFavourite", isFavourite);
-      dataModel.put("recipeType", req.getSession().getAttribute("recipeType"));
-    }
+    dataModel.put("responseRecipeId", responseRecipeId);
+    dataModel.put("email", req.getSession().getAttribute("email"));
+    dataModel.put("favouriteIdsChecked", favouriteRecipeIdsFromUser);
+    dataModel.put("recipeType", req.getSession().getAttribute("recipeType"));
+    dataModel.put("userType", "user");
+    dataModel.put("function", "RandomDrink");
+    PrintWriter printWriter = resp.getWriter();
 
     try {
-      template.process(dataModel, resp.getWriter());
+      template.process(dataModel, printWriter);
     } catch (TemplateException e) {
       logger.error(e.getMessage());
     }
