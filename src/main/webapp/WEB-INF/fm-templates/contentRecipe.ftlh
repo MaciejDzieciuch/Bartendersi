@@ -1,5 +1,5 @@
 <main>
-  <div class="container main_con drink_content">
+  <div class="container main_con drink_content margin_bottom">
     <div class="container">
       <div class="row">
 
