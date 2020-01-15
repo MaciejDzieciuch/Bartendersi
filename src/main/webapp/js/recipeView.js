@@ -68,3 +68,22 @@ $('#fav').click(function () {
     }
   });
 });
+
+function clickedFav(string, id) {
+  if ($(string).attr("src")
+      === "https://img.icons8.com/metro/26/000000/like.png") {
+    $(string).attr("src", "https://img.icons8.com/metro/26/000000/hearts.png");
+    $(this).attr('title', "remove from favourites")
+  } else {
+    $(string).attr("src", "https://img.icons8.com/metro/26/000000/like.png");
+    $(this).attr('title', "add to favourites")
+  }
+
+  $.ajax({
+    url: '/api/favourites/' + $(id).attr('id'),
+    type: 'GET',
+    success: function () {
+      console.log("favourite list edited");
+    }
+  })
+}
