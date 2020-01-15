@@ -23,6 +23,9 @@ import javax.validation.constraints.NotNull;
         name = "Recipe.getRecipesList",
         query = "SELECT r FROM Recipe r"),
     @NamedQuery(
+        name = "Recipe.getRecipeByName",
+        query = "SELECT r FROM Recipe r WHERE r.name LIKE :name"),
+    @NamedQuery(
         name = "Type.findTypeByName",
         query = "SELECT DISTINCT r.drinkType FROM Recipe r WHERE r.drinkType IN :types"),
     @NamedQuery(

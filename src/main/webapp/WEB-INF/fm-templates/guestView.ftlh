@@ -19,7 +19,7 @@
               <a class="nav-link" href="/recipe">Drinks</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Most Popular</a>
+              <a class="nav-link" href="/most-popular">Most Popular</a>
             </li>
           </ul>
           <div class="login">

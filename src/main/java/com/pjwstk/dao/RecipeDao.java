@@ -36,6 +36,12 @@ public class RecipeDao {
     return entityManager.find(Recipe.class, id);
   }
 
+  public Recipe getRecipeByName(String name) {
+    Query query = entityManager.createNamedQuery("Recipe.getRecipeByName");
+    query.setParameter("name", name);
+    return (Recipe) query.getSingleResult();
+  }
+
   public void deleteRecipeById(Long id) {
     Recipe recipe = getRecipeById(id);
     if (recipe != null) {
