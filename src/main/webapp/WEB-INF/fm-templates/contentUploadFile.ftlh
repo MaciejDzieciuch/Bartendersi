@@ -1,4 +1,5 @@
 <main>
+  <h2 style="text-align: center">Load drinks from JSON file</h2>
   <div class="container main_con">
     <form id="form-upload" action="/admin/upload-data" method="post" enctype="multipart/form-data">
       <div class="input-group mb-3">

@@ -65,5 +65,7 @@ public class LoadFileFromJsonServlet extends HttpServlet {
     recipe.setImageUrl(fileUrl);
     req.getSession().setAttribute("fileUpload", true);
     logger.info("Data from {} uploaded", fileUrl);
+
+    resp.sendRedirect("/admin/upload-data");
   }
 }
