@@ -1,4 +1,5 @@
 <main>
+  <div class="container main_con">
   <div class="col-sm-10 white">
     <table class="table white ">
       <thead>
@@ -87,4 +88,6 @@
     </div>
   </div>
   <script src="/js/admin.js"></script>
+  </div>
+
 </main>

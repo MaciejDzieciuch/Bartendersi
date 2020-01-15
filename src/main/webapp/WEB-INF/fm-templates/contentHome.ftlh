@@ -9,29 +9,29 @@
       </ol>
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="/img/slajd0.jpg" class="d-block w-100 img_slajd" alt="slajd0">
+          <img src="/img/slajd0.jpg" class="d-block w-100 img_slajd" alt="slajd0" style="height: 100vh">
           <div class="carousel-caption d-none d-md-block">
           </div>
         </div>
         <div class="carousel-item">
-          <img src="/img/slajd1.jpg" class="d-block w-100 img_slajd" alt="slajd1">
+          <img src="/img/slajd1.jpg" class="d-block w-100 img_slajd" alt="slajd1" style="height: 100vh">
           <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h5>For Your Bar</h5>
+            <p>Nice Place for you Bartenders</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="/img/slajd2.jpg" class="d-block w-100 img_slajd" alt="slajd2">
+          <img src="/img/slajd2.jpg" class="d-block w-100 img_slajd" alt="slajd2" style="height: 100vh">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h5>You Can change recipes</h5>
+            <p>Change and make you own recipes</p>
           </div>
         </div>
         <div class="carousel-item">
-          <img src="/img/slajd3.jpg" class="d-block w-100 img_slajd" alt="slajd3">
+          <img src="/img/slajd3.jpg" class="d-block w-100 img_slajd" alt="slajd3" style="height: 100vh">
           <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            <h5>Learn Something new </h5>
+            <p>Find and learn new recipes</p>
           </div>
         </div>
       </div>

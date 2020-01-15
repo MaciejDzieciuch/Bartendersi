@@ -1,5 +1,5 @@
 <main>
-  <div class="row">
+  <div class="row margin_bottom">
 
     <div class="col-sm-10 white">
       <table class="table white ">
