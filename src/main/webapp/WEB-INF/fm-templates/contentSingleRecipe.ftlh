@@ -85,7 +85,8 @@
 
                   <#if userType !="guest">
                       <#if favouriteIdsChecked?seq_contains(responseRecipeId.id)>
-                        <button class="btn btn-sm btn-outline-secondary" id="${responseRecipeId.id?c}"
+                        <button class="btn btn-sm btn-outline-secondary"
+                                id="${responseRecipeId.id?c}"
                                 title="remove from favourites"
                                 onclick="clickedFav('#fav-image-${responseRecipeId.id?c}', '#${responseRecipeId.id?c}')">
 
@@ -94,7 +95,8 @@
 
                         </button>
                       <#else>
-                        <button class="btn btn-sm btn-outline-secondary" id="${responseRecipeId.id?c}"
+                        <button class="btn btn-sm btn-outline-secondary"
+                                id="${responseRecipeId.id?c}"
                                 title="add to favourites"
                                 onclick="clickedFav('#fav-image-${responseRecipeId.id?c}', '#${responseRecipeId.id?c}')">
 
